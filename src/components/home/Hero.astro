@@ -1,0 +1,30 @@
+---
+import OrbitVisual from "./OrbitVisual.astro";
+
+const individualUrl = import.meta.env.PUBLIC_INDIVIDUAL_FORM_URL || "/contact/";
+---
+
+<section class="hero">
+  <div class="hero__signal" aria-hidden="true">QUESTION / CHOICE / ACTION</div>
+  <div class="container hero__grid">
+    <div class="hero__copy" data-reveal>
+      <p class="eyebrow"><span>NPO法人キャリアキャンパス</span></p>
+      <h1>所属環境で、<br /><em>可能性</em>は決まってしまうのか？</h1>
+      <p class="hero__brand">リスキリングの前に、<strong>Re:Mind。</strong></p>
+      <p class="hero__lead">
+        キャリアキャンパスは、会社や学校の外で、多様な人・知識・実践機会をつなぐ外部インフラです。固定化した前提を問い直し、自分の人生にもう一度反応し、次の一歩を選べる人を増やします。
+      </p>
+      <div class="hero__actions">
+        <a class="button" href={individualUrl}>活動に参加する <span>→</span></a>
+        <a class="button button--secondary" href="#remind">Re:Mindを知る</a>
+      </div>
+      <a class="text-link" href="/join/#partners">企業・大学・自治体の方へ <span>↗</span></a>
+    </div>
+    <div class="hero__visual" data-reveal>
+      <OrbitVisual />
+    </div>
+  </div>
+  <div class="container hero__foot" aria-hidden="true">
+    <span>SCROLL TO EXPLORE</span><i></i><span>01 — 08</span>
+  </div>
+</section>

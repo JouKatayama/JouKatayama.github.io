@@ -1,0 +1,57 @@
+---
+import SiteLayout from "../../layouts/SiteLayout.astro";
+import PageHero from "../../components/common/PageHero.astro";
+
+const individualUrl = import.meta.env.PUBLIC_INDIVIDUAL_FORM_URL || "/contact/";
+const partnerUrl = import.meta.env.PUBLIC_PARTNER_FORM_URL || "/contact/";
+const supporterUrl = import.meta.env.PUBLIC_SUPPORTER_FORM_URL || "/contact/";
+const paths = [
+  {
+    id: "individual",
+    number: "01 / INDIVIDUAL",
+    title: "個人として参加する",
+    text: "問いに触れ、イベントやプロジェクトに参加し、自分の可能性を小さく試すことができます。",
+    cta: "参加について問い合わせる",
+    href: individualUrl,
+  },
+  {
+    id: "partners",
+    number: "02 / ORGANIZATION",
+    title: "企業・大学・自治体として連携する",
+    text: "越境学習、実践機会、キャリア自律、共同研究、若者支援、社会実証について連携できます。",
+    cta: "連携について相談する",
+    href: partnerUrl,
+  },
+  {
+    id: "supporters",
+    number: "03 / SUPPORTER",
+    title: "メンター・支援者として関わる",
+    text: "専門性、経験、ネットワーク、プロジェクト、寄付・協賛を通じて挑戦を支えることができます。",
+    cta: "支援方法を相談する",
+    href: supporterUrl,
+  },
+];
+---
+
+<SiteLayout
+  title="活動に参加する｜NPO法人キャリアキャンパス"
+  description="個人、企業・大学・自治体、メンター・支援者として、キャリアキャンパスの活動に参加できます。"
+>
+  <PageHero
+    eyebrow="JOIN US"
+    title="問いを持つ人も、機会を持つ組織も。"
+    lead="一人ひとりの可能性が所属環境だけで決まらない社会を、異なる立場の人たちとともにつくります。"
+  />
+  <section class="content-section">
+    <div class="container join-grid">
+      {paths.map((path) => (
+        <article class="join-card" id={path.id} data-reveal>
+          <span>{path.number}</span>
+          <h2>{path.title}</h2>
+          <p>{path.text}</p>
+          <a class="button button--secondary" href={path.href}>{path.cta} <span>→</span></a>
+        </article>
+      ))}
+    </div>
+  </section>
+</SiteLayout>

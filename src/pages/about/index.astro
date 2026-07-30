@@ -1,0 +1,64 @@
+---
+import SiteLayout from "../../layouts/SiteLayout.astro";
+import PageHero from "../../components/common/PageHero.astro";
+
+const title = "私たちについて｜NPO法人キャリアキャンパス";
+const description = "キャリアキャンパスのミッション、Re:Mindの思想、目指す社会をご紹介します。";
+---
+
+<SiteLayout title={title} description={description}>
+  <PageHero
+    eyebrow="ABOUT US"
+    title="可能性を、所属環境だけに委ねない。"
+    lead="キャリアキャンパスは、固定化した前提を問い直し、人と知識と実践機会をつなぎ、自分の未来にもう一度反応できる人を増やします。"
+  />
+  <section class="content-section">
+    <div class="container content-grid">
+      <div class="content-copy" data-reveal>
+        <p class="eyebrow"><span>MISSION</span></p>
+        <h2>未来を、自ら切り拓ける社会へ。</h2>
+      </div>
+      <div class="content-copy" data-reveal>
+        <p>
+          所属環境にかかわらず、すべての人が自分の可能性を信じ、学びと実践を通じて未来を自ら切り拓ける社会をつくる。
+        </p>
+        <p>
+          会社や学校は大切な基盤です。しかし、一つの所属先だけに情報、経験、人とのつながりを委ねると、環境の変化に対して選択肢を持ちにくくなります。
+        </p>
+      </div>
+    </div>
+  </section>
+  <section class="content-section content-section--surface" id="remind">
+    <div class="container content-grid">
+      <div class="content-copy" data-reveal>
+        <p class="eyebrow"><span>Re:Mind</span></p>
+        <h2>リスキリングの前に、Re:Mind。</h2>
+        <p>
+          Re:Mindとは、固定化した自己認識や将来予測を現実に照らして問い直し、自分の人生にもう一度反応し、選び、動ける状態を取り戻すことです。
+        </p>
+      </div>
+      <div>
+        <article class="info-card" data-reveal><span>01</span><h3>現実を知る</h3><p>思い込みではなく、事実から現在地を捉える。</p></article>
+        <article class="info-card" data-reveal><span>02</span><h3>選び直す</h3><p>残る、辞める、学ぶ、挑戦する理由を自分の言葉で決める。</p></article>
+        <article class="info-card" data-reveal><span>03</span><h3>小さく試し、成果を残す</h3><p>行動を完了し、学びを次の機会へつなぐ。</p></article>
+      </div>
+    </div>
+  </section>
+  <section class="content-section">
+    <div class="container content-grid">
+      <div class="content-copy" data-reveal>
+        <p class="eyebrow"><span>POSITIONING</span></p>
+        <h2>会社でも学校でもない、学びと実践の外部インフラ。</h2>
+      </div>
+      <div class="content-copy" data-reveal>
+        <p>私たちは、答えを与えるだけの支援機関ではありません。</p>
+        <ul>
+          <li>先端情報と異なる価値観に触れる</li>
+          <li>所属や世代を越えて問いを持ち寄る</li>
+          <li>実在する課題に小さく挑戦する</li>
+          <li>成果を完成させ、次の選択肢へつなぐ</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+</SiteLayout>

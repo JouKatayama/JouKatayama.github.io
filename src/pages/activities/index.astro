@@ -1,0 +1,61 @@
+---
+import SiteLayout from "../../layouts/SiteLayout.astro";
+import PageHero from "../../components/common/PageHero.astro";
+
+const activities = [
+  {
+    id: "remind",
+    number: "01",
+    title: "Re:Mind",
+    lead: "現在地と固定化した前提を可視化する。",
+    text: "強い問い、対話、診断、振り返りを通じて、自分と環境の現実を捉え直します。答えを急ぐのではなく、選択の根拠を自分の言葉にします。",
+  },
+  {
+    id: "projects",
+    number: "02",
+    title: "実践プロジェクト",
+    lead: "学びを、他者に届く成果物へ。",
+    text: "企業、NPO、大学、行政、地域の実在する課題に小さなチームで取り組みます。曖昧な課題を定義し、検証し、成果物まで完成させます。",
+  },
+  {
+    id: "community",
+    number: "03",
+    title: "コミュニティ・メンタリング",
+    lead: "所属と世代を越えて、視野を広げる。",
+    text: "異なる環境で働き、学ぶ仲間、専門家、メンターとつながります。経験を持ち寄り、他者の視点から自分の前提を見直します。",
+  },
+  {
+    id: "research",
+    number: "04",
+    title: "研究・社会実装",
+    lead: "問いを、社会の知へ。",
+    text: "AI、キャリア、People Analytics、well-being、組織開発に関する調査・実証・発信を行い、現場へ還元します。",
+  },
+];
+---
+
+<SiteLayout
+  title="活動｜NPO法人キャリアキャンパス"
+  description="Re:Mind、実践プロジェクト、コミュニティ・メンタリング、研究・社会実装の4領域で活動します。"
+>
+  <PageHero
+    eyebrow="ACTIVITIES"
+    title="問いを、実践へ。実践を、次の機会へ。"
+    lead="気づくだけ、学ぶだけで終わらせず、小さく試し、成果を完成させ、次の選択肢へつなぐ活動を行います。"
+  />
+  {activities.map((activity, index) => (
+    <section class:list={["content-section", { "content-section--surface": index % 2 === 1 }]} id={activity.id}>
+      <div class="container content-grid">
+        <div class="content-copy" data-reveal>
+          <p class="eyebrow"><span>{activity.number} / ACTIVITY</span></p>
+          <h2>{activity.title}</h2>
+        </div>
+        <div class="content-copy" data-reveal>
+          <h3>{activity.lead}</h3>
+          <p>{activity.text}</p>
+          <a class="text-link" href="/join/">この活動に関わる <span>→</span></a>
+        </div>
+      </div>
+    </section>
+  ))}
+</SiteLayout>

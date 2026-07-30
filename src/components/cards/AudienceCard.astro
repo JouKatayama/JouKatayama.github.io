@@ -1,0 +1,18 @@
+---
+interface Props {
+  number: string;
+  label: string;
+  title: string;
+  text: string;
+  cta: string;
+  href: string;
+}
+const { number, label, title, text, cta, href } = Astro.props;
+---
+
+<article class="audience-card" data-reveal>
+  <p class="audience-card__meta"><span>{number}</span>{label}</p>
+  <h3>{title}</h3>
+  <p>{text}</p>
+  <a class="button button--secondary" href={href}>{cta} <span>→</span></a>
+</article>

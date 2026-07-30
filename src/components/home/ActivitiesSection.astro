@@ -1,0 +1,22 @@
+---
+import SectionIntro from "../common/SectionIntro.astro";
+import ActivityCard from "../cards/ActivityCard.astro";
+
+const activities = [
+  ["01", "Re:Mind", "強い問い、対話、診断、振り返りを通じて、現在地と固定化した前提を可視化します。", "/activities/#remind"],
+  ["02", "実践プロジェクト", "企業、NPO、大学、行政、地域の課題に、小さなチームで取り組み、成果物まで完成させます。", "/activities/#projects"],
+  ["03", "コミュニティ・メンタリング", "所属や世代を越えた仲間、専門家、メンターとつながり、視野と選択肢を広げます。", "/activities/#community"],
+  ["04", "研究・社会実装", "AI、キャリア、People Analytics、well-being、組織開発に関する調査・実証・発信を行います。", "/activities/#research"],
+];
+---
+
+<section class="section activities">
+  <div class="container">
+    <SectionIntro eyebrow="04 / ACTIVITIES" title="4つの活動領域" />
+    <div class="activities-grid">
+      {activities.map(([number, title, text, href]) => (
+        <ActivityCard number={number} title={title} text={text} href={href} />
+      ))}
+    </div>
+  </div>
+</section>

@@ -1,0 +1,14 @@
+---
+interface Props {
+  status: "recruiting" | "ongoing" | "completed" | "planned";
+}
+const { status } = Astro.props;
+const labels = {
+  recruiting: "参加者募集中",
+  ongoing: "進行中",
+  completed: "完了",
+  planned: "準備中",
+};
+---
+
+<span class:list={["status-badge", `status-badge--${status}`]}>{labels[status]}</span>

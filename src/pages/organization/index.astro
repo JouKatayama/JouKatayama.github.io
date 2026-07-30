@@ -1,0 +1,44 @@
+---
+import SiteLayout from "../../layouts/SiteLayout.astro";
+import PageHero from "../../components/common/PageHero.astro";
+---
+
+<SiteLayout
+  title="団体情報｜NPO法人キャリアキャンパス"
+  description="NPO法人キャリアキャンパスの団体概要、活動方針、情報公開についてご案内します。"
+>
+  <PageHero
+    eyebrow="ORGANIZATION"
+    title="問いと実践を支える、開かれた組織へ。"
+    lead="代表者個人に依存せず、異なる専門性と立場を持つ人が協働できる運営を目指します。"
+  />
+  <section class="content-section">
+    <div class="container content-grid">
+      <div class="content-copy" data-reveal>
+        <p class="eyebrow"><span>PROFILE</span></p>
+        <h2>団体概要</h2>
+      </div>
+      <div>
+        <article class="info-card" data-reveal><span>名称</span><h3>NPO法人キャリアキャンパス</h3></article>
+        <article class="info-card" data-reveal><span>位置づけ</span><h3>会社でも学校でもない、学びと実践の外部インフラ</h3></article>
+        <article class="info-card" data-reveal><span>活動領域</span><h3>Re:Mind／実践プロジェクト／コミュニティ・メンタリング／研究・社会実装</h3></article>
+      </div>
+    </div>
+  </section>
+  <section class="content-section content-section--surface" id="disclosure">
+    <div class="container content-grid">
+      <div class="content-copy" data-reveal>
+        <p class="eyebrow"><span>DISCLOSURE</span></p>
+        <h2>情報公開</h2>
+      </div>
+      <div class="content-copy" data-reveal>
+        <p>
+          定款、事業報告、役員・組織体制などの法人情報は、公開準備が整い次第このページに掲載します。
+        </p>
+        <p>
+          活動の透明性を重視し、目的、実施内容、成果、学びを継続的に発信します。
+        </p>
+      </div>
+    </div>
+  </section>
+</SiteLayout>

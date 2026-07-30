@@ -1,0 +1,24 @@
+---
+import SectionIntro from "../common/SectionIntro.astro";
+import AudienceCard from "../cards/AudienceCard.astro";
+
+const individualUrl = import.meta.env.PUBLIC_INDIVIDUAL_FORM_URL || "/contact/";
+const partnerUrl = import.meta.env.PUBLIC_PARTNER_FORM_URL || "/contact/";
+const supporterUrl = import.meta.env.PUBLIC_SUPPORTER_FORM_URL || "/contact/";
+const audiences = [
+  ["01", "INDIVIDUAL", "個人として", "問いに触れ、イベントやプロジェクトに参加し、自分の可能性を小さく試すことができます。", "個人として参加する", individualUrl],
+  ["02", "ORGANIZATION", "企業・大学・自治体として", "越境学習、実践機会、キャリア自律、共同研究、若者支援、社会実証について連携できます。", "連携について相談する", partnerUrl],
+  ["03", "SUPPORTER", "メンター・支援者として", "専門性、経験、ネットワーク、プロジェクト、寄付・協賛を通じて挑戦を支えることができます。", "支援方法を見る", supporterUrl],
+];
+---
+
+<section class="section audience">
+  <div class="container">
+    <SectionIntro eyebrow="05 / JOIN US" title="あなたの関わり方" />
+    <div class="audience-grid">
+      {audiences.map(([number, label, title, text, cta, href]) => (
+        <AudienceCard number={number} label={label} title={title} text={text} cta={cta} href={href} />
+      ))}
+    </div>
+  </div>
+</section>

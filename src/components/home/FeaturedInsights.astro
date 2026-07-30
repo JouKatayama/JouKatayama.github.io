@@ -1,0 +1,23 @@
+---
+import { getCollection } from "astro:content";
+import SectionIntro from "../common/SectionIntro.astro";
+import InsightCard from "../cards/InsightCard.astro";
+
+const insights = (await getCollection("insights", ({ data }) => !data.draft))
+  .sort((a, b) => b.data.publishedAt.getTime() - a.data.publishedAt.getTime())
+  .slice(0, 3);
+---
+
+{insights.length > 0 && (
+  <section class="section featured featured--insights">
+    <div class="container">
+      <div class="featured__head">
+        <SectionIntro eyebrow="07 / INSIGHTS" title="研究・インサイト" />
+        <a class="text-link" href="/insights/">すべて見る <span>→</span></a>
+      </div>
+      <div class="insight-grid">
+        {insights.map((insight) => <InsightCard insight={insight} />)}
+      </div>
+    </div>
+  </section>
+)}

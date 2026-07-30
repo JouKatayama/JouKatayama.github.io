@@ -1,0 +1,28 @@
+---
+import SectionIntro from "../common/SectionIntro.astro";
+import ProcessStep from "../cards/ProcessStep.astro";
+
+const steps = [
+  ["01", "Re:Mind", "現実を知る", "自分と環境の現在地を、思い込みではなく事実から捉える。"],
+  ["02", "Re:Choose", "選び直す", "辞める、残る、学ぶ、挑戦する理由を自分の言葉で決める。"],
+  ["03", "Re:Act", "小さく試す", "大きな決断の前に、7〜90日で検証できる行動を始める。"],
+  ["04", "Re:Build", "成果を残す", "行動を成果物、実績、他者評価、学びとして蓄積する。"],
+  ["05", "Re:Connect", "次の機会へつなぐ", "異動、転職、副業、研究、起業、社会貢献など次の選択肢へ接続する。"],
+];
+---
+
+<section class="section remind" id="remind">
+  <div class="container">
+    <div class="remind__head">
+      <SectionIntro eyebrow="02 / PHILOSOPHY" title="Re:Mindとは" />
+      <p data-reveal>
+        固定化した自己認識や将来予測を現実に照らして問い直し、自分の人生にもう一度反応し、選び、動ける状態を取り戻すこと。
+      </p>
+    </div>
+    <div class="process-grid">
+      {steps.map(([number, name, label, text]) => (
+        <ProcessStep number={number} name={name} label={label} text={text} />
+      ))}
+    </div>
+  </div>
+</section>

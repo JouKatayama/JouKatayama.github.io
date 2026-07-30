@@ -1,0 +1,50 @@
+---
+import SectionIntro from "../common/SectionIntro.astro";
+import PersonaCard from "../cards/PersonaCard.astro";
+
+const personas = [
+  {
+    number: "01",
+    label: "YOUNG TALENT",
+    title: "違和感から、すぐ離れる若手",
+    text: "辞めること自体は悪くない。ただ、次の仮説や自分側の学びを持たないまま環境だけを変えると、同じ問題が繰り返される。",
+  },
+  {
+    number: "02",
+    label: "MID-CAREER",
+    title: "安定の中で、変化を止める中堅",
+    text: "今の仕事を続けること自体は悪くない。ただ、会社や役職を将来の安全性と混同すると、社外で通用する経験が増えない。",
+  },
+  {
+    number: "03",
+    label: "HIGH POTENTIAL",
+    title: "能力はあるが、完成させられない人",
+    text: "学歴や知識はあっても、曖昧な課題を自分で定義し、他者に価値を届ける成果物まで完了できるとは限らない。",
+  },
+];
+---
+
+<section class="section problem" id="problem">
+  <div class="container">
+    <SectionIntro eyebrow="01 / PROBLEM" title="問題は、スキル不足だけではない。" />
+    <p class="problem__statement" data-reveal>
+      自分の未来に、<br /><span>反応しなくなっている</span>ことだ。
+    </p>
+    <p class="problem__lead" data-reveal>
+      選択そのものが悪いのではありません。問題は、環境が変化しても前提を問い直さず、学びや気づきを行動へ変えられない状態が続くことです。
+    </p>
+    <div class="persona-grid">
+      {personas.map((persona) => <PersonaCard {...persona} />)}
+    </div>
+    <div class="issue-structure" data-reveal>
+      <p>共通する構造</p>
+      <div>
+        <span>前提を更新しない</span>
+        <span>変化を自分事にしない</span>
+        <span>学びを実践へ移さない</span>
+        <span>小さく始めて完了しない</span>
+      </div>
+    </div>
+    <p class="problem__note">人を責めるためではなく、環境と行動の関係を問い直すための問題提起です。</p>
+  </div>
+</section>

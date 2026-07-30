@@ -1,0 +1,30 @@
+---
+import SiteLayout from "../layouts/SiteLayout.astro";
+import Hero from "../components/home/Hero.astro";
+import ProblemSection from "../components/home/ProblemSection.astro";
+import RemindSection from "../components/home/RemindSection.astro";
+import InfrastructureSection from "../components/home/InfrastructureSection.astro";
+import ActivitiesSection from "../components/home/ActivitiesSection.astro";
+import AudienceSection from "../components/home/AudienceSection.astro";
+import FeaturedProjects from "../components/home/FeaturedProjects.astro";
+import FeaturedInsights from "../components/home/FeaturedInsights.astro";
+import ImpactStrip from "../components/home/ImpactStrip.astro";
+import FinalCTA from "../components/home/FinalCTA.astro";
+
+const pageTitle = "NPO法人キャリアキャンパス｜リスキリングの前に、Re:Mind。";
+const pageDescription =
+  "会社や学校の外で、人・知識・実践機会をつなぎ、所属環境にかかわらず未来を選べる人を増やすNPO法人です。";
+---
+
+<SiteLayout title={pageTitle} description={pageDescription}>
+  <Hero />
+  <ProblemSection />
+  <RemindSection />
+  <InfrastructureSection />
+  <ActivitiesSection />
+  <AudienceSection />
+  <FeaturedProjects />
+  <FeaturedInsights />
+  <ImpactStrip />
+  <FinalCTA />
+</SiteLayout>

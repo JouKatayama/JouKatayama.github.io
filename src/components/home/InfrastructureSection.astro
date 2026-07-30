@@ -1,0 +1,34 @@
+---
+import SectionIntro from "../common/SectionIntro.astro";
+import ValueCard from "../cards/ValueCard.astro";
+import EcosystemDiagram from "./EcosystemDiagram.astro";
+
+const values = [
+  ["01", "先端情報", "AI、仕事、社会、キャリアの変化を知る"],
+  ["02", "仲間・メンター", "所属、職種、世代を越えて対話する"],
+  ["03", "問い・対話", "自己認識や将来の前提を問い直す"],
+  ["04", "実践機会", "実在する課題に小さく挑戦する"],
+  ["05", "成果の可視化", "経験と成果物をキャリア資産にする"],
+  ["06", "次の機会", "異動、転職、副業、研究、起業へ接続する"],
+];
+---
+
+<section class="section infrastructure">
+  <div class="container">
+    <div class="infrastructure__head">
+      <SectionIntro
+        eyebrow="03 / INFRASTRUCTURE"
+        title="会社でも学校でもない、キャリアの外部インフラ。"
+      />
+      <p data-reveal>
+        所属先だけでは得にくい知識、経験、価値観、人とのつながりを持ち寄り、小さな実践を通じて次の可能性をつくります。
+      </p>
+    </div>
+    <div class="infrastructure__layout">
+      <div class="value-grid">
+        {values.map(([number, title, text]) => <ValueCard number={number} title={title} text={text} />)}
+      </div>
+      <EcosystemDiagram />
+    </div>
+  </div>
+</section>

@@ -1,0 +1,29 @@
+---
+import { getCollection } from "astro:content";
+import SectionIntro from "../common/SectionIntro.astro";
+import ProjectCard from "../cards/ProjectCard.astro";
+
+const projects = (await getCollection("projects", ({ data }) => !data.draft))
+  .sort((a, b) => {
+    if (a.data.featured !== b.data.featured) return a.data.featured ? -1 : 1;
+    if ((a.data.status === "recruiting") !== (b.data.status === "recruiting")) {
+      return a.data.status === "recruiting" ? -1 : 1;
+    }
+    return (b.data.startAt?.getTime() || 0) - (a.data.startAt?.getTime() || 0);
+  })
+  .slice(0, 3);
+---
+
+{projects.length > 0 && (
+  <section class="section featured featured--projects">
+    <div class="container">
+      <div class="featured__head">
+        <SectionIntro eyebrow="06 / PROJECTS" title="注目プロジェクト" />
+        <a class="text-link" href="/projects/">すべて見る <span>→</span></a>
+      </div>
+      <div class="project-grid">
+        {projects.map((project) => <ProjectCard project={project} />)}
+      </div>
+    </div>
+  </section>
+)}

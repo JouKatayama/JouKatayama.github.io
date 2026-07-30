@@ -1,0 +1,17 @@
+---
+interface Props {
+  number: string;
+  title: string;
+  text: string;
+  href: string;
+}
+const { number, title, text, href } = Astro.props;
+---
+
+<article class="activity-card" data-reveal>
+  <span>{number}</span>
+  <div class="activity-card__symbol" aria-hidden="true"><i></i><i></i><i></i></div>
+  <h3>{title}</h3>
+  <p>{text}</p>
+  <a href={href} aria-label={`${title}の詳細を見る`}>詳しく見る <span>↗</span></a>
+</article>

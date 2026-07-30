@@ -1,0 +1,18 @@
+---
+interface Props {
+  inverse?: boolean;
+}
+const { inverse = false } = Astro.props;
+---
+
+<span class:list={["logo", { "logo--inverse": inverse }]}>
+  <span class="logo__mark" aria-hidden="true">
+    <span></span>
+    <span></span>
+    <span></span>
+  </span>
+  <span class="logo__text">
+    <strong>CAREER</strong>
+    <span>CAMPUS</span>
+  </span>
+</span>

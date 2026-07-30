@@ -1,0 +1,32 @@
+---
+import { getCollection, render } from "astro:content";
+import ArticleLayout from "../../layouts/ArticleLayout.astro";
+
+export async function getStaticPaths() {
+  const insights = await getCollection("insights", ({ data }) => !data.draft);
+  return insights.map((insight) => ({ params: { id: insight.id }, props: { insight } }));
+}
+
+const { insight } = Astro.props;
+const { Content } = await render(insight);
+const categories = {
+  remind: "Re:Mind",
+  "ai-career": "AIとキャリア",
+  organization: "組織開発",
+  "people-analytics": "People Analytics",
+  youth: "若者・学生支援",
+  wellbeing: "well-being",
+  report: "活動レポート",
+};
+---
+
+<ArticleLayout
+  title={insight.data.title}
+  description={insight.data.description}
+  category={categories[insight.data.category]}
+  publishedAt={insight.data.publishedAt}
+  updatedAt={insight.data.updatedAt}
+  author={insight.data.author}
+>
+  <Content />
+</ArticleLayout>

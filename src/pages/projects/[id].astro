@@ -1,0 +1,30 @@
+---
+import { getCollection, render } from "astro:content";
+import ArticleLayout from "../../layouts/ArticleLayout.astro";
+import StatusBadge from "../../components/cards/StatusBadge.astro";
+
+export async function getStaticPaths() {
+  const projects = await getCollection("projects", ({ data }) => !data.draft);
+  return projects.map((project) => ({ params: { id: project.id }, props: { project } }));
+}
+
+const { project } = Astro.props;
+const { Content } = await render(project);
+const categories = {
+  remind: "Re:Mind",
+  project: "実践プロジェクト",
+  community: "コミュニティ",
+  research: "研究・社会実装",
+};
+---
+
+<ArticleLayout
+  title={project.data.title}
+  description={project.data.description}
+  category={categories[project.data.category]}
+  publishedAt={project.data.publishedAt}
+>
+  <p><StatusBadge status={project.data.status} /></p>
+  <Content />
+  <p><a class="button" href="/contact/">このプロジェクトについて相談する <span>→</span></a></p>
+</ArticleLayout>

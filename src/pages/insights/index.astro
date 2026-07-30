@@ -1,0 +1,28 @@
+---
+import { getCollection } from "astro:content";
+import SiteLayout from "../../layouts/SiteLayout.astro";
+import PageHero from "../../components/common/PageHero.astro";
+import InsightCard from "../../components/cards/InsightCard.astro";
+
+const insights = (await getCollection("insights", ({ data }) => !data.draft)).sort(
+  (a, b) => b.data.publishedAt.getTime() - a.data.publishedAt.getTime(),
+);
+---
+
+<SiteLayout
+  title="研究・インサイト｜NPO法人キャリアキャンパス"
+  description="Re:Mind、AIとキャリア、組織開発、若者支援に関する研究・インサイトを発信します。"
+>
+  <PageHero
+    eyebrow="INSIGHTS"
+    title="問いを深め、社会の知へ変える。"
+    lead="キャリアの無反応、AIと仕事、組織と個人の関係を捉え直し、実践に使える知として発信します。"
+  />
+  <section class="listing-section">
+    <div class="container">
+      <div class="insight-grid">
+        {insights.map((insight) => <InsightCard insight={insight} />)}
+      </div>
+    </div>
+  </section>
+</SiteLayout>

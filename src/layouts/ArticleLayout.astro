@@ -1,0 +1,55 @@
+---
+import SiteLayout from "./SiteLayout.astro";
+
+interface Props {
+  title: string;
+  description: string;
+  category: string;
+  publishedAt: Date;
+  updatedAt?: Date;
+  author?: string;
+}
+const {
+  title,
+  description,
+  category,
+  publishedAt,
+  updatedAt,
+  author = "キャリアキャンパス",
+} = Astro.props;
+const date = new Intl.DateTimeFormat("ja-JP", {
+  year: "numeric",
+  month: "long",
+  day: "numeric",
+}).format(publishedAt);
+const articleJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  headline: title,
+  description,
+  datePublished: publishedAt.toISOString(),
+  dateModified: (updatedAt || publishedAt).toISOString(),
+  author: { "@type": "Organization", name: author },
+  publisher: { "@type": "Organization", name: "NPO法人キャリアキャンパス" },
+  inLanguage: "ja",
+  mainEntityOfPage: Astro.url.href,
+};
+---
+
+<SiteLayout title={`${title}｜NPO法人キャリアキャンパス`} description={description} type="article">
+  <script is:inline slot="head" type="application/ld+json" set:html={JSON.stringify(articleJsonLd)} />
+  <article class="article">
+    <header class="article__header" data-reveal>
+      <p class="eyebrow"><span>{category}</span></p>
+      <h1>{title}</h1>
+      <p class="article__lead">{description}</p>
+      <div class="article__meta">
+        <time datetime={publishedAt.toISOString()}>{date}</time>
+        <span>{author}</span>
+      </div>
+    </header>
+    <div class="article__body">
+      <slot />
+    </div>
+  </article>
+</SiteLayout>

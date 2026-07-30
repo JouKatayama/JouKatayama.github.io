@@ -1,0 +1,28 @@
+---
+import { getCollection, render } from "astro:content";
+import ArticleLayout from "../../layouts/ArticleLayout.astro";
+
+export async function getStaticPaths() {
+  const news = await getCollection("news", ({ data }) => !data.draft && !data.externalUrl);
+  return news.map((item) => ({ params: { id: item.id }, props: { item } }));
+}
+
+const { item } = Astro.props;
+const { Content } = await render(item);
+const categories = {
+  event: "イベント",
+  recruitment: "募集",
+  activity: "活動",
+  media: "メディア",
+  organization: "団体情報",
+};
+---
+
+<ArticleLayout
+  title={item.data.title}
+  description={item.data.description}
+  category={categories[item.data.category]}
+  publishedAt={item.data.publishedAt}
+>
+  <Content />
+</ArticleLayout>

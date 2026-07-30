@@ -1,0 +1,25 @@
+---
+const nodes = [
+  "企業",
+  "大学・研究機関",
+  "行政・自治体",
+  "NPO",
+  "スタートアップ",
+  "フリーランス",
+  "学生",
+  "社会人",
+  "メンター",
+];
+---
+
+<div class="ecosystem" aria-label="企業、大学、行政、NPOなどをつなぐキャリアキャンパスの関係図" data-reveal>
+  <div class="ecosystem__rings" aria-hidden="true"></div>
+  <div class="ecosystem__core">
+    <small>EXTERNAL INFRASTRUCTURE</small>
+    <strong>CAREER<br />CAMPUS</strong>
+    <span>外部インフラ／サードプレイス</span>
+  </div>
+  {nodes.map((node, index) => (
+    <span class={`ecosystem__node ecosystem__node--${index + 1}`}>{node}</span>
+  ))}
+</div>

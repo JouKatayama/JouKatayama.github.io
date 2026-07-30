@@ -1,0 +1,46 @@
+---
+import SiteLayout from "../../layouts/SiteLayout.astro";
+import PageHero from "../../components/common/PageHero.astro";
+
+const individualUrl = import.meta.env.PUBLIC_INDIVIDUAL_FORM_URL;
+const partnerUrl = import.meta.env.PUBLIC_PARTNER_FORM_URL;
+const supporterUrl = import.meta.env.PUBLIC_SUPPORTER_FORM_URL;
+const links = [
+  { label: "個人としての参加について", href: individualUrl },
+  { label: "企業・大学・自治体との連携について", href: partnerUrl },
+  { label: "メンター・寄付・協賛について", href: supporterUrl },
+].filter((link) => Boolean(link.href));
+---
+
+<SiteLayout
+  title="お問い合わせ｜NPO法人キャリアキャンパス"
+  description="活動への参加、企業・大学・自治体との連携、メンター・支援に関するお問い合わせ窓口です。"
+>
+  <PageHero
+    eyebrow="CONTACT"
+    title="まずは、問いや課題を聞かせてください。"
+    lead="具体的な企画が固まっていない段階でも構いません。目指す状態や、今感じている課題から対話を始めます。"
+  />
+  <section class="content-section">
+    <div class="container contact-panel" id="contact-notice">
+      <div data-reveal>
+        <h2>お問い合わせ窓口</h2>
+        <p>
+          {links.length > 0
+            ? "ご相談内容に近い窓口をお選びください。"
+            : "現在、お問い合わせフォームの公開準備を進めています。窓口の準備が整い次第、このページでご案内します。"}
+        </p>
+      </div>
+      <div class="contact-panel__links" data-reveal>
+        {links.length > 0 ? links.map((link) => (
+          <a href={link.href}>{link.label}<span>↗</span></a>
+        )) : (
+          <>
+            <a href="/news/">最新のお知らせを見る <span>→</span></a>
+            <a href="/join/">参加方法を確認する <span>→</span></a>
+          </>
+        )}
+      </div>
+    </div>
+  </section>
+</SiteLayout>

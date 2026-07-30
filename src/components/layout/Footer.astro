@@ -1,0 +1,60 @@
+---
+import Logo from "../common/Logo.astro";
+
+const groups = [
+  {
+    title: "私たちについて",
+    links: [
+      ["/about/", "Mission"],
+      ["/about/#remind", "Re:Mind"],
+      ["/organization/", "団体情報"],
+    ],
+  },
+  {
+    title: "活動を知る",
+    links: [
+      ["/activities/", "活動"],
+      ["/projects/", "プロジェクト"],
+      ["/insights/", "研究・インサイト"],
+      ["/news/", "お知らせ"],
+    ],
+  },
+  {
+    title: "関わる",
+    links: [
+      ["/join/#individual", "個人として参加"],
+      ["/join/#partners", "企業・大学・自治体"],
+      ["/join/#supporters", "メンター・支援"],
+      ["/contact/", "お問い合わせ"],
+    ],
+  },
+];
+---
+
+<footer class="site-footer">
+  <div class="container site-footer__grid">
+    <div class="site-footer__brand">
+      <a href="/" aria-label="キャリアキャンパス ホーム"><Logo inverse /></a>
+      <p>
+        所属環境にかかわらず、すべての人が自分の可能性を信じ、学びと実践を通じて未来を自ら切り拓ける社会をつくる。
+      </p>
+    </div>
+    {groups.map((group) => (
+      <nav aria-label={group.title}>
+        <h2>{group.title}</h2>
+        <ul>
+          {group.links.map(([href, label]) => (
+            <li><a href={href}>{label}</a></li>
+          ))}
+        </ul>
+      </nav>
+    ))}
+  </div>
+  <div class="container site-footer__bottom">
+    <p>© {new Date().getFullYear()} NPO Career Campus</p>
+    <div>
+      <a href="/privacy/">プライバシーポリシー</a>
+      <a href="/organization/#disclosure">情報公開</a>
+    </div>
+  </div>
+</footer>

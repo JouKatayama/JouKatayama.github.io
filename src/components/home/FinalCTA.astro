@@ -1,0 +1,22 @@
+---
+const individualUrl = import.meta.env.PUBLIC_INDIVIDUAL_FORM_URL || "/contact/";
+const partnerUrl = import.meta.env.PUBLIC_PARTNER_FORM_URL || "/contact/";
+---
+
+<section class="final-cta">
+  <div class="final-cta__grid" aria-hidden="true"></div>
+  <div class="container final-cta__inner" data-reveal>
+    <p class="eyebrow"><span>NEXT QUESTION</span></p>
+    <h2>
+      あなたは、自分のキャリアを<br /><em>選んでいるか。</em><br />
+      <small>それとも、置かれ続けているだけか。</small>
+    </h2>
+    <p>
+      完璧な答えは必要ありません。まずは、今の前提を一つ問い直すところから始められます。
+    </p>
+    <div class="final-cta__actions">
+      <a class="button" href={individualUrl}>活動に参加する <span>→</span></a>
+      <a class="button button--secondary" href={partnerUrl}>連携について相談する</a>
+    </div>
+  </div>
+</section>

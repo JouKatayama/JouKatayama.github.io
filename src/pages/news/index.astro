@@ -1,0 +1,42 @@
+---
+import { getCollection } from "astro:content";
+import SiteLayout from "../../layouts/SiteLayout.astro";
+import PageHero from "../../components/common/PageHero.astro";
+
+const news = (await getCollection("news", ({ data }) => !data.draft)).sort(
+  (a, b) => b.data.publishedAt.getTime() - a.data.publishedAt.getTime(),
+);
+const formatDate = (date: Date) =>
+  new Intl.DateTimeFormat("ja-JP", {
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
+  }).format(date);
+---
+
+<SiteLayout
+  title="お知らせ｜NPO法人キャリアキャンパス"
+  description="キャリアキャンパスからのイベント、募集、活動、団体に関するお知らせです。"
+>
+  <PageHero
+    eyebrow="NEWS"
+    title="お知らせ"
+    lead="イベント、プロジェクト募集、活動報告、団体からのご案内をお届けします。"
+  />
+  <section class="listing-section">
+    <div class="container news-list">
+      {news.map((item) => (
+        <article class="news-item" data-reveal>
+          <time datetime={item.data.publishedAt.toISOString()}>{formatDate(item.data.publishedAt)}</time>
+          <div>
+            <h2>
+              <a href={item.data.externalUrl || `/news/${item.id}/`}>{item.data.title}</a>
+            </h2>
+            <p>{item.data.description}</p>
+          </div>
+          <span>↗</span>
+        </article>
+      ))}
+    </div>
+  </section>
+</SiteLayout>
