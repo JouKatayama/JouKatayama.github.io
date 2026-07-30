@@ -1,43 +1,125 @@
 ---
 import SiteLayout from "../../layouts/SiteLayout.astro";
 import PageHero from "../../components/common/PageHero.astro";
+import { organization } from "../../data/organization";
+
+const profile = [
+  ["法人名", organization.legalName],
+  ["法人名（フリガナ）", organization.phoneticName],
+  ["代表者", `${organization.representative}（${organization.representativeReading}）`],
+  ["設立", organization.foundedDisplay],
+  ["業種", organization.industries.join("・")],
+  ["事業内容", organization.services.join("／")],
+  ["所在地", `〒${organization.postalCode} ${organization.address}`],
+  ["電話番号", organization.telephone],
+];
 ---
 
 <SiteLayout
   title="団体情報｜NPO法人キャリアキャンパス"
-  description="NPO法人キャリアキャンパスの団体概要、活動方針、情報公開についてご案内します。"
+  description="特定非営利活動法人キャリアキャンパスの法人概要、理念、設立の背景、活動体制、公開情報をご案内します。"
 >
   <PageHero
     eyebrow="ORGANIZATION"
-    title="問いと実践を支える、開かれた組織へ。"
-    lead="代表者個人に依存せず、異なる専門性と立場を持つ人が協働できる運営を目指します。"
+    title="キャリア教育から、働く社会を変える。"
+    lead="京都を拠点に、就活・就労支援、キャリア教育、実践型インターンを展開する特定非営利活動法人です。"
   />
+
+  <section class="fact-strip" aria-label="団体情報の要約">
+    <div class="container fact-strip__grid">
+      <div><span>FOUNDED</span><strong>2023.02.17</strong></div>
+      <div><span>REPRESENTATIVE</span><strong>高橋 千春</strong></div>
+      <div><span>BASE</span><strong>京都市中京区</strong></div>
+      <div><span>EXPERTISE</span><strong>国家資格キャリアコンサルタント在籍</strong></div>
+    </div>
+  </section>
+
   <section class="content-section">
     <div class="container content-grid">
       <div class="content-copy" data-reveal>
         <p class="eyebrow"><span>PROFILE</span></p>
-        <h2>団体概要</h2>
+        <h2>法人概要</h2>
+        <p>所在地と連絡先は、更新日の新しい京都市・engageの公開情報を優先して掲載しています。</p>
       </div>
-      <div>
-        <article class="info-card" data-reveal><span>名称</span><h3>NPO法人キャリアキャンパス</h3></article>
-        <article class="info-card" data-reveal><span>位置づけ</span><h3>会社でも学校でもない、学びと実践の外部インフラ</h3></article>
-        <article class="info-card" data-reveal><span>活動領域</span><h3>Re:Mind／実践プロジェクト／コミュニティ・メンタリング／研究・社会実装</h3></article>
+      <dl class="profile-table" data-reveal>
+        {profile.map(([label, value]) => (
+          <div>
+            <dt>{label}</dt>
+            <dd>
+              {label === "電話番号" ? <a href={organization.telephoneHref}>{value}</a> : value}
+            </dd>
+          </div>
+        ))}
+        <div>
+          <dt>公式Webサイト</dt>
+          <dd><a href={organization.officialWebsite} target="_blank" rel="noreferrer">career-campus.org ↗</a></dd>
+        </div>
+        <div>
+          <dt>掲載従業員数</dt>
+          <dd>47名（京都市掲載情報・2024年11月20日更新時点）</dd>
+        </div>
+      </dl>
+    </div>
+  </section>
+
+  <section class="content-section content-section--surface">
+    <div class="container">
+      <div class="content-copy philosophy-head" data-reveal>
+        <p class="eyebrow"><span>PHILOSOPHY</span></p>
+        <h2>私たちが目指すもの</h2>
+      </div>
+      <div class="philosophy-grid">
+        <article data-reveal><span>MISSION</span><h3>{organization.mission}</h3></article>
+        <article data-reveal><span>VISION</span><h3>{organization.vision}</h3></article>
+        <article data-reveal><span>VALUE</span><h3>{organization.value}</h3></article>
       </div>
     </div>
   </section>
-  <section class="content-section content-section--surface" id="disclosure">
+
+  <section class="content-section">
     <div class="container content-grid">
       <div class="content-copy" data-reveal>
-        <p class="eyebrow"><span>DISCLOSURE</span></p>
-        <h2>情報公開</h2>
+        <p class="eyebrow"><span>ORIGIN</span></p>
+        <h2>支援された一人が、次の誰かを支える。</h2>
       </div>
+      <div class="content-copy origin-story" data-reveal>
+        <p>
+          就職氷河期を経験した代表が、大学3年生の就職活動を支援したことが始まりです。その学生が後輩の相談に乗り、支援の連鎖が少しずつ広がりました。
+        </p>
+        <p>
+          誰かから受け取った助けを次の誰かへ手渡す。その循環を一時的な善意で終わらせず、キャリア教育の仕組みにするため、キャリアキャンパスは法人として歩み始めました。
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="content-section content-section--surface">
+    <div class="container content-grid">
       <div class="content-copy" data-reveal>
-        <p>
-          定款、事業報告、役員・組織体制などの法人情報は、公開準備が整い次第このページに掲載します。
-        </p>
-        <p>
-          活動の透明性を重視し、目的、実施内容、成果、学びを継続的に発信します。
-        </p>
+        <p class="eyebrow"><span>OUR STRENGTH</span></p>
+        <h2>専門性と多様な実務経験を、支援の力に。</h2>
+      </div>
+      <div>
+        <article class="info-card" data-reveal><span>01</span><h3>国家資格キャリアコンサルタントが複数在籍</h3><p>キャリア支援の専門知識を持つメンバーが、対話と実践の設計を支えます。</p></article>
+        <article class="info-card" data-reveal><span>02</span><h3>学生から若手・中堅社会人まで</h3><p>世代や立場の異なる人が関わり、一つの価値観に偏らない視点を持ち寄ります。</p></article>
+        <article class="info-card" data-reveal><span>03</span><h3>営業・人事・エンジニア・事務・専門職</h3><p>多様な職種の実務経験を、就活支援、新規事業、AI/DXなどの実践機会へつなげます。</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="content-section" id="disclosure">
+    <div class="container">
+      <div class="content-copy disclosure-head" data-reveal>
+        <p class="eyebrow"><span>PUBLIC INFORMATION</span></p>
+        <h2>公開情報・外部掲載</h2>
+        <p>法人情報と活動内容を確認できる外部ページです。募集条件は各募集ページの最新情報をご確認ください。</p>
+      </div>
+      <div class="source-grid">
+        {organization.sources.map((source) => (
+          <a class="source-card" href={source.href} target="_blank" rel="noreferrer" data-reveal>
+            <span>EXTERNAL SOURCE</span><h3>{source.label}</h3><p>{source.description}</p><i>↗</i>
+          </a>
+        ))}
       </div>
     </div>
   </section>

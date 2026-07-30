@@ -26,5 +26,11 @@ const categories = {
 >
   <p><StatusBadge status={project.data.status} /></p>
   <Content />
-  <p><a class="button" href="/contact/">このプロジェクトについて相談する <span>→</span></a></p>
+  <p>
+    {project.data.externalUrl ? (
+      <a class="button" href={project.data.externalUrl} target="_blank" rel="noreferrer">最新の募集情報を見る <span>↗</span></a>
+    ) : (
+      <a class="button" href="/contact/">この活動について相談する <span>→</span></a>
+    )}
+  </p>
 </ArticleLayout>

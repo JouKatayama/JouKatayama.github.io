@@ -3,16 +3,16 @@ import SectionIntro from "../common/SectionIntro.astro";
 import ActivityCard from "../cards/ActivityCard.astro";
 
 const activities = [
-  ["01", "Re:Mind", "強い問い、対話、診断、振り返りを通じて、現在地と固定化した前提を可視化します。", "/activities/#remind"],
-  ["02", "実践プロジェクト", "企業、NPO、大学、行政、地域の課題に、小さなチームで取り組み、成果物まで完成させます。", "/activities/#projects"],
-  ["03", "コミュニティ・メンタリング", "所属や世代を越えた仲間、専門家、メンターとつながり、視野と選択肢を広げます。", "/activities/#community"],
-  ["04", "研究・社会実装", "AI、キャリア、People Analytics、well-being、組織開発に関する調査・実証・発信を行います。", "/activities/#research"],
+  ["01", "就活・キャリア支援", "新卒就活、職業開発、就労支援を通じて、働き方と自己実現をともに考えます。", "/activities/#career-support"],
+  ["02", "実践型インターン", "新規事業、人事・広報、マーケティング・営業を、企画から実行まで経験します。", "/activities/#internship"],
+  ["03", "AI / DX実践", "企業案件と新規開発を通じて、AIを実務で使い、つくる力を身につけます。", "/activities/#ai-dx"],
+  ["04", "専門家と多世代の協働", "キャリア支援の専門家と、多様な職種・世代のメンバーが経験を持ち寄ります。", "/activities/#community"],
 ];
 ---
 
 <section class="section activities">
   <div class="container">
-    <SectionIntro eyebrow="04 / ACTIVITIES" title="4つの活動領域" />
+    <SectionIntro eyebrow="04 / ACTIVITIES" title="活動の4つの柱" />
     <div class="activities-grid">
       {activities.map(([number, title, text, href]) => (
         <ActivityCard number={number} title={title} text={text} href={href} />

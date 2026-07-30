@@ -1,5 +1,6 @@
 ---
 import Logo from "../common/Logo.astro";
+import { organization } from "../../data/organization";
 
 const groups = [
   {
@@ -36,7 +37,9 @@ const groups = [
     <div class="site-footer__brand">
       <a href="/" aria-label="キャリアキャンパス ホーム"><Logo inverse /></a>
       <p>
-        所属環境にかかわらず、すべての人が自分の可能性を信じ、学びと実践を通じて未来を自ら切り拓ける社会をつくる。
+        {organization.mission}。<br />
+        〒{organization.postalCode} {organization.address}<br />
+        <a href={organization.telephoneHref}>{organization.telephone}</a>
       </p>
     </div>
     {groups.map((group) => (
@@ -51,7 +54,7 @@ const groups = [
     ))}
   </div>
   <div class="container site-footer__bottom">
-    <p>© {new Date().getFullYear()} NPO Career Campus</p>
+    <p>© {new Date().getFullYear()} {organization.legalName}</p>
     <div>
       <a href="/privacy/">プライバシーポリシー</a>
       <a href="/organization/#disclosure">情報公開</a>

@@ -1,5 +1,6 @@
 ---
 import "../styles/global.css";
+import { organization } from "../data/organization";
 
 interface Props {
   title: string;
@@ -19,10 +20,23 @@ const imageUrl = new URL(image, Astro.site);
 const organizationJsonLd = {
   "@context": "https://schema.org",
   "@type": "Organization",
-  name: "NPO法人キャリアキャンパス",
+  name: organization.displayName,
+  legalName: organization.legalName,
   url: new URL("/", Astro.site).href,
-  slogan: "リスキリングの前に、Re:Mind。",
+  foundingDate: organization.foundingDate,
+  founder: { "@type": "Person", name: organization.representativeName },
+  address: {
+    "@type": "PostalAddress",
+    postalCode: organization.postalCode,
+    addressRegion: "京都府",
+    addressLocality: "京都市中京区",
+    streetAddress: "西横町167-1",
+    addressCountry: "JP",
+  },
+  telephone: organization.telephone,
+  slogan: organization.mission,
   description,
+  sameAs: [organization.officialWebsite, organization.careersUrl, organization.supportUrl],
 };
 const websiteJsonLd = {
   "@context": "https://schema.org",

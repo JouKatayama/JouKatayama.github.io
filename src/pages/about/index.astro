@@ -1,63 +1,58 @@
 ---
 import SiteLayout from "../../layouts/SiteLayout.astro";
 import PageHero from "../../components/common/PageHero.astro";
+import { organization } from "../../data/organization";
 
 const title = "私たちについて｜NPO法人キャリアキャンパス";
-const description = "キャリアキャンパスのミッション、Re:Mindの思想、目指す社会をご紹介します。";
+const description = "キャリアキャンパスのMission・Vision・Value、設立の背景、Re:Mindの考え方をご紹介します。";
 ---
 
 <SiteLayout title={title} description={description}>
   <PageHero
     eyebrow="ABOUT US"
-    title="可能性を、所属環境だけに委ねない。"
-    lead="キャリアキャンパスは、固定化した前提を問い直し、人と知識と実践機会をつなぎ、自分の未来にもう一度反応できる人を増やします。"
+    title="働くことと、自分らしく生きることをつなぐ。"
+    lead="価値観や働き方が大きく変わる時代に、キャリア教育を通じて、一人ひとりの働き方と自己実現を支えます。"
   />
+
   <section class="content-section">
-    <div class="container content-grid">
-      <div class="content-copy" data-reveal>
-        <p class="eyebrow"><span>MISSION</span></p>
-        <h2>未来を、自ら切り拓ける社会へ。</h2>
+    <div class="container">
+      <div class="content-copy philosophy-head" data-reveal>
+        <p class="eyebrow"><span>MISSION / VISION / VALUE</span></p>
+        <h2>社会を変える起点は、一人ひとりのキャリアにある。</h2>
       </div>
-      <div class="content-copy" data-reveal>
-        <p>
-          所属環境にかかわらず、すべての人が自分の可能性を信じ、学びと実践を通じて未来を自ら切り拓ける社会をつくる。
-        </p>
-        <p>
-          会社や学校は大切な基盤です。しかし、一つの所属先だけに情報、経験、人とのつながりを委ねると、環境の変化に対して選択肢を持ちにくくなります。
-        </p>
+      <div class="philosophy-grid">
+        <article data-reveal><span>MISSION</span><h3>{organization.mission}</h3><p>仕事を選ぶ技術だけでなく、自分らしい生き方と働き方を考え、実践できる土台をつくります。</p></article>
+        <article data-reveal><span>VISION</span><h3>{organization.vision}</h3><p>年齢や所属にかかわらず、一人ひとりが能力を生かし、よりよく働ける社会を目指します。</p></article>
+        <article data-reveal><span>VALUE</span><h3>{organization.value}</h3><p>自分の個性や専門性を誰かのために使い、支援が次の支援につながる循環を育てます。</p></article>
       </div>
     </div>
   </section>
+
   <section class="content-section content-section--surface" id="remind">
     <div class="container content-grid">
       <div class="content-copy" data-reveal>
         <p class="eyebrow"><span>Re:Mind</span></p>
         <h2>リスキリングの前に、Re:Mind。</h2>
-        <p>
-          Re:Mindとは、固定化した自己認識や将来予測を現実に照らして問い直し、自分の人生にもう一度反応し、選び、動ける状態を取り戻すことです。
-        </p>
+        <p>Re:Mindは、公式Missionを日々の行動に結びつける、このWebサイトのアクションコンセプトです。</p>
       </div>
       <div>
-        <article class="info-card" data-reveal><span>01</span><h3>現実を知る</h3><p>思い込みではなく、事実から現在地を捉える。</p></article>
-        <article class="info-card" data-reveal><span>02</span><h3>選び直す</h3><p>残る、辞める、学ぶ、挑戦する理由を自分の言葉で決める。</p></article>
-        <article class="info-card" data-reveal><span>03</span><h3>小さく試し、成果を残す</h3><p>行動を完了し、学びを次の機会へつなぐ。</p></article>
+        <article class="info-card" data-reveal><span>01</span><h3>現実を知る</h3><p>思い込みではなく、対話と事実から現在地を捉える。</p></article>
+        <article class="info-card" data-reveal><span>02</span><h3>選び直す</h3><p>就職、転職、学び、挑戦の理由を自分の言葉で決める。</p></article>
+        <article class="info-card" data-reveal><span>03</span><h3>実践する</h3><p>就活支援や新規事業、AI/DXの現場で、小さく試して学びを残す。</p></article>
       </div>
     </div>
   </section>
+
   <section class="content-section">
     <div class="container content-grid">
       <div class="content-copy" data-reveal>
-        <p class="eyebrow"><span>POSITIONING</span></p>
-        <h2>会社でも学校でもない、学びと実践の外部インフラ。</h2>
+        <p class="eyebrow"><span>HOW WE BEGAN</span></p>
+        <h2>一人への就活支援から始まった、助け合いの連鎖。</h2>
       </div>
       <div class="content-copy" data-reveal>
-        <p>私たちは、答えを与えるだけの支援機関ではありません。</p>
-        <ul>
-          <li>先端情報と異なる価値観に触れる</li>
-          <li>所属や世代を越えて問いを持ち寄る</li>
-          <li>実在する課題に小さく挑戦する</li>
-          <li>成果を完成させ、次の選択肢へつなぐ</li>
-        </ul>
+        <p>代表が大学生の就職活動を支援し、その学生が後輩を支えたことが活動の原点です。</p>
+        <p>だから私たちは、相談に答えるだけでは終わりません。キャリア支援の専門家、多様な職種の実務家、学生や社会人がつながり、学んだ人が次の誰かに力を返せる場を育てます。</p>
+        <a class="text-link" href="/organization/">法人情報と体制を見る <span>→</span></a>
       </div>
     </div>
   </section>

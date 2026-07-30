@@ -1,57 +1,56 @@
 ---
 import SiteLayout from "../../layouts/SiteLayout.astro";
 import PageHero from "../../components/common/PageHero.astro";
+import { organization } from "../../data/organization";
 
 const individualUrl = import.meta.env.PUBLIC_INDIVIDUAL_FORM_URL || "/contact/";
 const partnerUrl = import.meta.env.PUBLIC_PARTNER_FORM_URL || "/contact/";
 const supporterUrl = import.meta.env.PUBLIC_SUPPORTER_FORM_URL || "/contact/";
 const paths = [
   {
-    id: "individual",
-    number: "01 / INDIVIDUAL",
-    title: "個人として参加する",
-    text: "問いに触れ、イベントやプロジェクトに参加し、自分の可能性を小さく試すことができます。",
-    cta: "参加について問い合わせる",
-    href: individualUrl,
+    id: "individual", number: "01 / INDIVIDUAL", title: "個人として参加する",
+    text: "キャリアの相談から、実践型インターンまで。自分の現在地に合う関わり方を選べます。",
+    points: ["就活・キャリア相談", "新規事業・マーケティング実践", "AI/DX・企業案件への挑戦"],
+    cta: "参加について問い合わせる", href: individualUrl,
   },
   {
-    id: "partners",
-    number: "02 / ORGANIZATION",
-    title: "企業・大学・自治体として連携する",
-    text: "越境学習、実践機会、キャリア自律、共同研究、若者支援、社会実証について連携できます。",
-    cta: "連携について相談する",
-    href: partnerUrl,
+    id: "partners", number: "02 / ORGANIZATION", title: "企業・大学・自治体として連携する",
+    text: "若者の実践機会と、組織・地域が抱える課題をつなぐプログラムをともに設計します。",
+    points: ["学生・若者向けの実践テーマ提供", "キャリア教育・就労支援の共同実施", "AI/DXや新規事業での協働"],
+    cta: "連携について相談する", href: partnerUrl,
   },
   {
-    id: "supporters",
-    number: "03 / SUPPORTER",
-    title: "メンター・支援者として関わる",
-    text: "専門性、経験、ネットワーク、プロジェクト、寄付・協賛を通じて挑戦を支えることができます。",
-    cta: "支援方法を相談する",
-    href: supporterUrl,
+    id: "supporters", number: "03 / SUPPORTER", title: "専門性や寄付で支える",
+    text: "支援が次の支援につながる循環を、経験・専門性・寄付によって一緒に育ててください。",
+    points: ["キャリアコンサルタント・メンター", "実務スキルによる伴走", "寄付・継続サポート"],
+    cta: "支援方法を相談する", href: supporterUrl,
   },
 ];
 ---
 
 <SiteLayout
   title="活動に参加する｜NPO法人キャリアキャンパス"
-  description="個人、企業・大学・自治体、メンター・支援者として、キャリアキャンパスの活動に参加できます。"
+  description="キャリア相談・インターンへの参加、企業・大学・自治体との連携、専門性や寄付による支援方法をご案内します。"
 >
-  <PageHero
-    eyebrow="JOIN US"
-    title="問いを持つ人も、機会を持つ組織も。"
-    lead="一人ひとりの可能性が所属環境だけで決まらない社会を、異なる立場の人たちとともにつくります。"
-  />
+  <PageHero eyebrow="JOIN US" title="学ぶ人、機会をつくる組織、支える専門家へ。" lead="就活支援、新規事業、AI/DXなどの実践を、異なる立場の人とともにつくります。" />
   <section class="content-section">
     <div class="container join-grid">
       {paths.map((path) => (
         <article class="join-card" id={path.id} data-reveal>
-          <span>{path.number}</span>
-          <h2>{path.title}</h2>
-          <p>{path.text}</p>
+          <span>{path.number}</span><h2>{path.title}</h2><p>{path.text}</p>
+          <ul>{path.points.map((point) => <li>{point}</li>)}</ul>
           <a class="button button--secondary" href={path.href}>{path.cta} <span>→</span></a>
         </article>
       ))}
+    </div>
+  </section>
+  <section class="career-cta">
+    <div class="container career-cta__inner" data-reveal>
+      <div><p class="eyebrow"><span>OPEN NOW</span></p><h2>募集と支援の公開窓口</h2><p>最新のインターン情報はengage、寄付・継続支援はSyncableで確認できます。</p></div>
+      <div class="career-cta__actions">
+        <a class="button" href={organization.careersUrl} target="_blank" rel="noreferrer">募集一覧 <span>↗</span></a>
+        <a class="button button--ghost" href={organization.supportUrl} target="_blank" rel="noreferrer">活動を支援する <span>↗</span></a>
+      </div>
     </div>
   </section>
 </SiteLayout>

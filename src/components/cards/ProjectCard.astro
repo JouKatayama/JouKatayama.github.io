@@ -14,7 +14,7 @@ const categoryLabels = {
 };
 const date = project.data.startAt
   ? new Intl.DateTimeFormat("ja-JP", { year: "numeric", month: "short" }).format(project.data.startAt)
-  : "日程調整中";
+  : project.data.status === "ongoing" ? "継続実施" : "募集ページで確認";
 ---
 
 <article class="project-card" data-reveal>
@@ -31,7 +31,7 @@ const date = project.data.startAt
     <p>{project.data.description}</p>
     <dl>
       <div><dt>対象</dt><dd>{project.data.audience.join("・")}</dd></div>
-      <div><dt>開始</dt><dd>{date}</dd></div>
+      <div><dt>実施</dt><dd>{date}</dd></div>
     </dl>
     <a class="card-link" href={`/projects/${project.id}/`}>プロジェクトを見る <span>↗</span></a>
   </div>
