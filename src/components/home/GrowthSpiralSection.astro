@@ -1,0 +1,61 @@
+---
+import SectionIntro from "../common/SectionIntro.astro";
+
+const layers = [
+  {
+    number: "01",
+    status: "NOW",
+    label: "FOUNDATION",
+    title: "第三の場所と、互助の輪",
+    text: "会社でも学校でもない相談場所と、利害関係に縛られないつながりをつくります。安心して話せる関係が、挑戦の足場になります。",
+  },
+  {
+    number: "02",
+    status: "NOW",
+    label: "ACTION",
+    title: "教え合い、越境して試す",
+    text: "先輩の経験と、後輩・異分野の新しい知見を持ち寄り、AIや技術の変化にも触れながら、未経験の領域へ小さく挑戦します。",
+  },
+  {
+    number: "03",
+    status: "FUTURE",
+    label: "VISION",
+    title: "多様なキャリアを社会の力へ",
+    text: "パラレルキャリア、起業、プロボノなどへ選択肢を広げ、企業・地域との協業が生まれるエコシステムとして全国へ展開する未来を描きます。",
+  },
+];
+---
+
+<section class="section growth-spiral">
+  <div class="container">
+    <div class="growth-spiral__head">
+      <SectionIntro eyebrow="04 / CAREER GROWTH SPIRAL" title="個人の「やりたい」を、社会の「力」にする。" />
+      <p data-reveal>
+        場をつくり、行動を支え、未来の選択肢へつなぐ。直近の重点と将来像を一つの成長循環として進めます。
+      </p>
+    </div>
+    <div class="growth-spiral__visual" data-reveal>
+      <figure>
+        <img
+          src="/images/community-circle-v3.webp"
+          width="1536"
+          height="1024"
+          alt="学生・社会人・専門家が輪になって対話するイメージ"
+          loading="lazy"
+        />
+        <figcaption><span>CROSS-BOUNDARY COMMUNITY</span><strong>教える人も、学ぶ人も、固定しない。</strong></figcaption>
+      </figure>
+      <div class="growth-spiral__loop" aria-hidden="true"><span>つながる</span><i>→</i><span>学ぶ</span><i>→</i><span>試す</span><i>→</i><span>次へ</span></div>
+    </div>
+    <div class="growth-spiral__layers">
+      {layers.map((layer) => (
+        <article class:list={["spiral-layer", { "spiral-layer--future": layer.status === "FUTURE" }]} data-reveal>
+          <div class="spiral-layer__meta"><span>{layer.number}</span><small>{layer.status}</small></div>
+          <p>{layer.label}</p>
+          <h3>{layer.title}</h3>
+          <div>{layer.text}</div>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>

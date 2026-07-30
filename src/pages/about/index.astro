@@ -5,18 +5,33 @@ import { organization } from "../../data/organization";
 import { pageVisuals } from "../../data/visuals";
 
 const title = "私たちについて｜NPO法人キャリアキャンパス";
-const description = "キャリアキャンパスのMission・Vision・Value、設立の背景、Re:Mindの考え方をご紹介します。";
+const description = "キャリアキャンパスが直近に進める第三の場所・越境学習の方針と、Mission・Vision・Value、設立の背景をご紹介します。";
 ---
 
 <SiteLayout title={title} description={description}>
   <PageHero
     eyebrow="ABOUT US"
-    title="働くことと、自分らしく生きることをつなぐ。"
-    lead="価値観や働き方が大きく変わる時代に、キャリア教育を通じて、一人ひとりの働き方と自己実現を支えます。"
+    title="所属を越えたつながりから、可能性をひらく。"
+    lead="キャリアキャンパスは、会社でも学校でもない第三の場所を基盤に、対話・越境学習・実践をつなぐNPOです。"
     visual={pageVisuals.about}
   />
 
-  <section class="content-section">
+  <section class="content-section current-direction">
+    <div class="container content-grid">
+      <div class="content-copy" data-reveal>
+        <p class="eyebrow"><span>CURRENT DIRECTION</span></p>
+        <h2>直近の中心は、環境格差を越える外部インフラづくり。</h2>
+        <p>所属する会社・学校・地域によって、得られる情報、出会える人、挑戦できる機会は異なります。だから私たちは、所属先の外にも学びと実践の入口をつくります。</p>
+      </div>
+      <div>
+        <article class="info-card" data-reveal><span>FOUNDATION</span><h3>第三の場所と互助の輪</h3><p>利害関係に縛られず、安心して相談し、異なる経験に出会える関係を育てます。</p></article>
+        <article class="info-card" data-reveal><span>ACTION</span><h3>教え合いと越境実践</h3><p>最新知見に触れ、未経験の課題を小さく試し、経験を次の機会へつなげます。</p></article>
+        <article class="info-card info-card--future" data-reveal><span>TO-BE</span><h3>多様なキャリアと共創エコシステム</h3><p>就活支援、インターン、AI/DX、新規事業を段階的に広げ、地域や組織を越える循環を目指します。</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="content-section content-section--surface">
     <div class="container">
       <div class="content-copy philosophy-head" data-reveal>
         <p class="eyebrow"><span>MISSION / VISION / VALUE</span></p>
@@ -30,7 +45,7 @@ const description = "キャリアキャンパスのMission・Vision・Value、�
     </div>
   </section>
 
-  <section class="content-section content-section--surface" id="remind">
+  <section class="content-section" id="remind">
     <div class="container content-grid">
       <div class="content-copy" data-reveal>
         <p class="eyebrow"><span>Re:Mind</span></p>
@@ -45,7 +60,7 @@ const description = "キャリアキャンパスのMission・Vision・Value、�
     </div>
   </section>
 
-  <section class="content-section">
+  <section class="content-section content-section--surface">
     <div class="container content-grid">
       <div class="content-copy" data-reveal>
         <p class="eyebrow"><span>HOW WE BEGAN</span></p>

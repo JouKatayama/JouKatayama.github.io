@@ -10,20 +10,20 @@ const supporterUrl = import.meta.env.PUBLIC_SUPPORTER_FORM_URL || "/contact/";
 const paths = [
   {
     id: "individual", number: "01 / INDIVIDUAL", title: "個人として参加する",
-    text: "キャリアの相談から、実践型インターンまで。自分の現在地に合う関わり方を選べます。",
-    points: ["就活・キャリア相談", "新規事業・マーケティング実践", "AI/DX・企業案件への挑戦"],
+    text: "所属の外で誰かと話したい、違う世界を知りたい、小さく試したい。今の違和感や関心から参加できます。",
+    points: ["第三の場所での交流・相談", "壁打ち・メンタリング", "越境学習・小さな実践"],
     cta: "参加について問い合わせる", href: individualUrl,
   },
   {
     id: "partners", number: "02 / ORGANIZATION", title: "企業・大学・自治体として連携する",
-    text: "若者の実践機会と、組織・地域が抱える課題をつなぐプログラムをともに設計します。",
-    points: ["学生・若者向けの実践テーマ提供", "キャリア教育・就労支援の共同実施", "AI/DXや新規事業での協働"],
+    text: "組織・地域が持つ知見や課題を、所属を越えた学びと挑戦の機会へつなぐ場をともに設計します。",
+    points: ["越境学習・対話の場づくり", "実践テーマやメンターの提供", "将来の共創・社会実装に向けた協働"],
     cta: "連携について相談する", href: partnerUrl,
   },
   {
     id: "supporters", number: "03 / SUPPORTER", title: "専門性や寄付で支える",
-    text: "支援が次の支援につながる循環を、経験・専門性・寄付によって一緒に育ててください。",
-    points: ["キャリアコンサルタント・メンター", "実務スキルによる伴走", "寄付・継続サポート"],
+    text: "受け取った経験が次の誰かへ渡る互助の輪を、対話の時間・専門性・寄付によって一緒に育ててください。",
+    points: ["キャリアコンサルタント・メンター", "仕事や人生の経験を分かち合う", "寄付・継続サポート"],
     cta: "支援方法を相談する", href: supporterUrl,
   },
 ];
@@ -31,9 +31,9 @@ const paths = [
 
 <SiteLayout
   title="活動に参加する｜NPO法人キャリアキャンパス"
-  description="キャリア相談・インターンへの参加、企業・大学・自治体との連携、専門性や寄付による支援方法をご案内します。"
+  description="会社でも学校でもない第三の場所への参加、企業・大学・自治体との連携、メンタリングや寄付による支援方法をご案内します。"
 >
-  <PageHero eyebrow="JOIN US" title="学ぶ人、機会をつくる組織、支える専門家へ。" lead="就活支援、新規事業、AI/DXなどの実践を、異なる立場の人とともにつくります。" visual={pageVisuals.join} />
+  <PageHero eyebrow="JOIN THE THIRD PLACE" title="所属を越えて、第三の場所を一緒に育てる。" lead="参加する人、経験を分かち合う人、課題や機会をひらく組織。それぞれの関わりが、誰かの次の一歩を支えます。" visual={pageVisuals.join} />
   <section class="content-section">
     <div class="container join-grid">
       {paths.map((path) => (

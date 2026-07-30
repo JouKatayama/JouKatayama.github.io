@@ -6,15 +6,15 @@ const individualUrl = import.meta.env.PUBLIC_INDIVIDUAL_FORM_URL || "/contact/";
 const partnerUrl = import.meta.env.PUBLIC_PARTNER_FORM_URL || "/contact/";
 const supporterUrl = import.meta.env.PUBLIC_SUPPORTER_FORM_URL || "/contact/";
 const audiences = [
-  ["01", "INDIVIDUAL", "個人として", "就活・キャリア相談、新規事業、マーケティング、AI/DXなど、自分の現在地に合う実践へ参加できます。", "個人として参加する", individualUrl],
-  ["02", "ORGANIZATION", "企業・大学・自治体として", "若者の実践機会と組織・地域の課題をつなぎ、キャリア教育や就労支援を共同で設計できます。", "連携について相談する", partnerUrl],
-  ["03", "SUPPORTER", "メンター・支援者として", "キャリア支援や実務の専門性、プロジェクト提供、寄付を通じて、挑戦の循環を支えられます。", "支援方法を見る", supporterUrl],
+  ["01", "INDIVIDUAL", "個人として", "所属の外で相談したい、異なる経験に触れたい、小さな挑戦を始めたい。今の関心から第三の場所に参加できます。", "個人として参加する", individualUrl],
+  ["02", "ORGANIZATION", "企業・大学・自治体として", "組織や地域の知見・課題を持ち寄り、越境学習や実践テーマ、共創の場を一緒に設計できます。", "連携について相談する", partnerUrl],
+  ["03", "SUPPORTER", "メンター・支援者として", "仕事や人生の経験、専門知識、対話の時間、寄付を通して、誰かの挑戦の足場を支えられます。", "支援方法を見る", supporterUrl],
 ];
 ---
 
 <section class="section audience">
   <div class="container">
-    <SectionIntro eyebrow="06 / JOIN US" title="あなたの関わり方" />
+    <SectionIntro eyebrow="07 / JOIN US" title="第三の場所を、一緒に育てる。" />
     <div class="audience-grid">
       {audiences.map(([number, label, title, text, cta, href]) => (
         <AudienceCard number={number} label={label} title={title} text={text} cta={cta} href={href} />

@@ -10,7 +10,8 @@ const profile = [
   ["代表者", `${organization.representative}（${organization.representativeReading}）`],
   ["設立", organization.foundedDisplay],
   ["業種", organization.industries.join("・")],
-  ["事業内容", organization.services.join("／")],
+  ["現在の重点方針", "第三の場所・互助のつながり／壁打ち・メンタリング／越境学習・実践機会づくり"],
+  ["公開情報上の事業内容", organization.services.join("／")],
   ["所在地", `〒${organization.postalCode} ${organization.address}`],
   ["電話番号", organization.telephone],
 ];
@@ -22,8 +23,8 @@ const profile = [
 >
   <PageHero
     eyebrow="ORGANIZATION"
-    title="キャリア教育から、働く社会を変える。"
-    lead="京都を拠点に、就活・就労支援、キャリア教育、実践型インターンを展開する特定非営利活動法人です。"
+    title="第三の場所から、働く社会を変える。"
+    lead="京都を拠点に、所属を越えた相談・交流・越境学習・実践をつなぐ外部インフラづくりを進める特定非営利活動法人です。"
     visual={pageVisuals.organization}
   />
 
@@ -65,6 +66,21 @@ const profile = [
   </section>
 
   <section class="content-section content-section--surface">
+    <div class="container content-grid">
+      <div class="content-copy" data-reveal>
+        <p class="eyebrow"><span>CURRENT BUSINESS DIRECTION</span></p>
+        <h2>現在の重点と、将来の展開を分けて進めます。</h2>
+        <p>直近は、第三の場所、互助のつながり、壁打ち・メンタリング、越境学習、小さな実践機会を中心に基盤を整えます。</p>
+      </div>
+      <div>
+        <article class="info-card" data-reveal><span>NOW</span><h3>知・経験・価値観が交わる場</h3><p>企業、大学、行政、NPO、教育機関、個人の専門家など、多様な環境をつなぎます。</p></article>
+        <article class="info-card" data-reveal><span>NOW</span><h3>対話から実践までの循環</h3><p>つながる、学ぶ、試す、成果を振り返る、次の機会へ進む流れを支えます。</p></article>
+        <article class="info-card info-card--future" data-reveal><span>TO-BE</span><h3>就活支援・インターン・AI/DX・新規事業</h3><p>現在のサイトで紹介してきた領域は、基盤から段階的に広げる将来構想として位置づけます。</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="content-section">
     <div class="container">
       <div class="content-copy philosophy-head" data-reveal>
         <p class="eyebrow"><span>PHILOSOPHY</span></p>
@@ -78,7 +94,7 @@ const profile = [
     </div>
   </section>
 
-  <section class="content-section">
+  <section class="content-section content-section--surface">
     <div class="container content-grid">
       <div class="content-copy" data-reveal>
         <p class="eyebrow"><span>ORIGIN</span></p>
@@ -95,7 +111,7 @@ const profile = [
     </div>
   </section>
 
-  <section class="content-section content-section--surface">
+  <section class="content-section">
     <div class="container content-grid">
       <div class="content-copy" data-reveal>
         <p class="eyebrow"><span>OUR STRENGTH</span></p>

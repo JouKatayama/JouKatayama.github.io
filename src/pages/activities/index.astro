@@ -4,67 +4,97 @@ import PageHero from "../../components/common/PageHero.astro";
 import { organization } from "../../data/organization";
 import { activityVisuals, pageVisuals } from "../../data/visuals";
 
-const activities = [
+const currentActivities = [
   {
-    id: "career-support",
+    id: "third-place",
     number: "01",
-    title: "就活・キャリア支援",
-    lead: "選考対策だけでなく、働き方と自己実現を一緒に考える。",
-    text: "新卒の就職活動から、働くことに悩みを抱える人の就労支援まで。国家資格キャリアコンサルタントを含むメンバーが、対話を通じて現在地と次の一歩を整理します。",
-    points: ["新卒就活支援", "キャリア相談・職業開発", "就労に向けた伴走支援"],
+    visualKey: "community",
+    title: "第三の場所・互助のコミュニティ",
+    lead: "会社でも学校でもない、安心して相談できる場所をひらく。",
+    text: "所属先の評価や利害関係から少し離れ、年齢・職種・組織を越えてつながれる場を育てます。明確な目標がなくても、今の違和感や関心を話すことから参加できます。",
+    points: ["利害関係に縛られないつながり", "所属・世代・職種を越えた交流", "オンラインも活用した継続的な場づくり"],
   },
   {
-    id: "internship",
+    id: "mentoring",
     number: "02",
-    title: "実践型インターン",
-    lead: "事業を考え、つくり、届けるところまで。",
-    text: "新規事業、人事・広報、マーケティング・営業など、実務に近いテーマに長期で取り組みます。過去の外部紹介では、英語学習サービスの企画から販売までを学生が担う実践も紹介されました。",
-    points: ["新規事業の企画・検証", "採用・広報・デザイン", "マーケティング・営業"],
+    visualKey: "career-support",
+    title: "壁打ち・相談・メンタリング",
+    lead: "正解を教えるのではなく、問いと選択肢を一緒に育てる。",
+    text: "先輩の指導経験、後輩や異分野の新しい知見、キャリア支援の専門性を持ち寄ります。教える側と学ぶ側を固定せず、対話を通して互いの視野を広げます。",
+    points: ["キャリアや活動方針の壁打ち", "経験者・専門家との対話", "次の一歩を言葉にする伴走"],
   },
   {
-    id: "ai-dx",
+    id: "cross-boundary",
     number: "03",
-    title: "AI / DX実践",
-    lead: "学習だけでなく、企業案件と新規開発で使う。",
-    text: "AIの最新動向を学びながら、実際の顧客案件やサービス開発に挑戦します。公開中の募集では、AIによるデータベース登録、GPTsを使ったコピー生成、AI Tuber、災害支援マップなどの開発例が示されています。",
-    points: ["ChatGPT・プロンプト設計", "Python・ReactによるAIシステム開発", "企業のDX支援"],
+    visualKey: "internship",
+    title: "越境学習・小さな実践",
+    lead: "最新知見に触れ、まだ経験のない領域へ足場をかける。",
+    text: "AIや技術、業界・地域の変化を学ぶだけで終わらせず、実在する課題や短期間のプロジェクトで試します。失敗を含む経験を振り返り、次の挑戦へつなげます。",
+    points: ["情報交換・ナレッジシェア", "未経験領域への小さな挑戦", "越境チームでの実践プロジェクト"],
   },
   {
-    id: "community",
+    id: "growth-cycle",
     number: "04",
-    title: "専門家と多世代の協働",
-    lead: "一つの所属や職種に閉じない視点を持ち寄る。",
-    text: "学生、若手社会人、中堅社会人、キャリア支援の専門家が参加。営業、人事、エンジニア、事務、専門職など、多様な経験を相談・企画・実践へつなげます。",
-    points: ["国家資格キャリアコンサルタント", "学生から中堅社会人まで", "多様な職種・専門性"],
+    visualKey: "ai-dx",
+    title: "成長の可視化と次の機会",
+    lead: "経験を一度きりにせず、キャリアの資産として蓄える。",
+    text: "対話、学び、実践で得た成果や気づきを記録し、次の役割や学習テーマへ接続します。将来的にはデータとAIも活用し、一人ひとりに合う支援の設計を目指します。",
+    points: ["成果・学びの振り返り", "ポートフォリオと成長の可視化", "次の学習・役割・キャリアへの接続"],
   },
+];
+
+const futureActivities = [
+  ["01", "就活・キャリア支援の拡充", "新卒就活、就労支援、転職・副業・パラレルキャリアまで、多様な選択に伴走する。"],
+  ["02", "実践型インターン", "新規事業、人事・広報、マーケティング・営業を、企画から実行まで経験できる機会を広げる。"],
+  ["03", "AI / DX実践", "企業案件と新規開発を通してAIを実務で使い、社会や組織の課題解決へつなげる。"],
+  ["04", "共創エコシステム", "企業、大学、行政、NPO、スタートアップ、個人の専門家が継続的に協業できる仕組みをつくる。"],
+];
+
+const coCreationThemes = [
+  ["ものづくりの知見", "AI・データ", "製造DX・新価値創造"],
+  ["行政・地域のデータ", "UXデザイン", "住民体験の向上"],
+  ["教育コンテンツ", "企業の実務", "実践的な学び"],
+  ["研究シーズ", "専門家ネットワーク", "新規事業・社会実装"],
+  ["現場の課題", "スタートアップ", "課題解決プロジェクト"],
 ];
 ---
 
 <SiteLayout
   title="活動｜NPO法人キャリアキャンパス"
-  description="就活・キャリア支援、実践型インターン、AI/DX、専門家と多世代の協働を通じて、キャリア教育を実践します。"
+  description="会社でも学校でもない第三の場所を基盤に、壁打ち・メンタリング、越境学習、小さな実践、成長の可視化に取り組みます。"
 >
   <PageHero
-    eyebrow="ACTIVITIES"
-    title="相談から、実際に仕事をつくる経験まで。"
-    lead="就活・就労支援と、企業や社会の課題に挑む実践機会をつなぎ、自分の能力を誰かのために使える状態を育てます。"
+    eyebrow="CURRENT FOCUS / ACTIVITIES"
+    title="所属の外に、相談と挑戦の足場をつくる。"
+    lead="直近は、第三の場所、互助のつながり、壁打ち、越境学習、小さな実践を事業の中心に据えます。既存の活動構想は、この基盤から広げる将来像として残します。"
     visual={pageVisuals.activities}
   />
-  {activities.map((activity, index) => (
+
+  <section class="strategy-summary">
+    <div class="container strategy-summary__grid" data-reveal>
+      <div><span>NOW / FOUNDATION</span><strong>第三の場所と互助の輪</strong><p>安心して話せる関係をつくる。</p></div>
+      <i aria-hidden="true">→</i>
+      <div><span>NOW / ACTION</span><strong>教え合いと越境実践</strong><p>未知の領域を小さく試す。</p></div>
+      <i aria-hidden="true">→</i>
+      <div class="strategy-summary__future"><span>TO-BE / VISION</span><strong>多様なキャリアと社会実装</strong><p>個人の「やりたい」を社会の力へ。</p></div>
+    </div>
+  </section>
+
+  {currentActivities.map((activity, index) => (
     <section class:list={["content-section", { "content-section--surface": index % 2 === 1 }]} id={activity.id}>
       <div class="container activity-detail">
         <div class="content-copy" data-reveal>
-          <p class="eyebrow"><span>{activity.number} / ACTIVITY</span></p>
+          <p class="eyebrow"><span>{activity.number} / CURRENT FOCUS</span></p>
           <h2>{activity.title}</h2>
         </div>
         <figure class="activity-detail__visual" data-reveal>
           <img
-            src={activityVisuals[activity.id].src}
-            alt={activityVisuals[activity.id].alt}
+            src={activityVisuals[activity.visualKey].src}
+            alt={activityVisuals[activity.visualKey].alt}
             width="1536"
             height="1024"
             loading="lazy"
-            style={`object-position: ${activityVisuals[activity.id].position || "center"}`}
+            style={`object-position: ${activityVisuals[activity.visualKey].position || "center"}`}
           />
         </figure>
         <div class="content-copy" data-reveal>
@@ -75,12 +105,42 @@ const activities = [
       </div>
     </section>
   ))}
+
+  <section class="content-section future-programs" id="future">
+    <div class="container">
+      <div class="future-programs__head" data-reveal>
+        <div class="content-copy"><p class="eyebrow"><span>TO-BE / FUTURE PROGRAMS</span></p><h2>第三の場所から、将来の事業へ。</h2></div>
+        <p>以下は、現在の基盤づくりと越境実践を積み重ねながら、段階的に実現を目指す将来像です。</p>
+      </div>
+      <div class="future-programs__grid">
+        {futureActivities.map(([number, title, text]) => (
+          <article data-reveal><span>{number}</span><h3>{title}</h3><p>{text}</p></article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="content-section content-section--surface co-creation">
+    <div class="container">
+      <div class="content-copy philosophy-head" data-reveal>
+        <p class="eyebrow"><span>FUTURE CO-CREATION / CONCEPT</span></p>
+        <h2>異なる強みが交わる、共創テーマの構想例。</h2>
+        <p>実績や提携先を示すものではなく、外部インフラを通して将来生み出したい価値の例です。</p>
+      </div>
+      <div class="co-creation__grid">
+        {coCreationThemes.map(([source, partner, result]) => (
+          <article data-reveal><span>{source}</span><i>×</i><span>{partner}</span><strong>→ {result}</strong></article>
+        ))}
+      </div>
+    </div>
+  </section>
+
   <section class="career-cta">
     <div class="container career-cta__inner" data-reveal>
-      <div><p class="eyebrow"><span>CURRENT OPPORTUNITIES</span></p><h2>現在の募集を確認する</h2><p>職種、対象、勤務条件は募集ページの最新情報をご確認ください。</p></div>
+      <div><p class="eyebrow"><span>JOIN / COLLABORATE</span></p><h2>第三の場所に関わる</h2><p>参加、相談、メンタリング、実践テーマの提供、連携についてお問い合わせください。</p></div>
       <div class="career-cta__actions">
-        <a class="button" href={organization.careersUrl} target="_blank" rel="noreferrer">募集一覧を見る <span>↗</span></a>
-        <a class="button button--ghost" href={organization.aiDxUrl} target="_blank" rel="noreferrer">AI/DX募集を見る <span>↗</span></a>
+        <a class="button" href="/contact/">相談・連携について聞く <span>→</span></a>
+        <a class="button button--ghost" href={organization.careersUrl} target="_blank" rel="noreferrer">公開中の募集情報 <span>↗</span></a>
       </div>
     </div>
   </section>

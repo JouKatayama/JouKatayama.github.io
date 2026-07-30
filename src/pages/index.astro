@@ -5,6 +5,7 @@ import ProblemSection from "../components/home/ProblemSection.astro";
 import RemindSection from "../components/home/RemindSection.astro";
 import InfrastructureSection from "../components/home/InfrastructureSection.astro";
 import ActivitiesSection from "../components/home/ActivitiesSection.astro";
+import GrowthSpiralSection from "../components/home/GrowthSpiralSection.astro";
 import CurrentWorkSection from "../components/home/CurrentWorkSection.astro";
 import AudienceSection from "../components/home/AudienceSection.astro";
 import FeaturedProjects from "../components/home/FeaturedProjects.astro";
@@ -12,18 +13,19 @@ import FeaturedInsights from "../components/home/FeaturedInsights.astro";
 import ImpactStrip from "../components/home/ImpactStrip.astro";
 import FinalCTA from "../components/home/FinalCTA.astro";
 
-const pageTitle = "NPO法人キャリアキャンパス｜リスキリングの前に、Re:Mind。";
+const pageTitle = "NPO法人キャリアキャンパス｜所属を越えて、可能性が交わる第三の場所";
 const pageDescription =
-  "京都を拠点に、対話と実践を通じて一人ひとりのキャリア選択に伴走するNPO法人です。就活・キャリア支援、実践型インターン、AI/DX、新規事業に取り組んでいます。";
+  "京都を拠点に、所属先の外で多様な知・経験・価値観をつなぎ、対話・越境学習・実践を支えるNPO法人です。会社でも学校でもないキャリアの第三の場所を育てています。";
 ---
 
 <SiteLayout title={pageTitle} description={pageDescription}>
   <Hero />
   <ProblemSection />
-  <RemindSection />
-  <ActivitiesSection />
-  <CurrentWorkSection />
   <InfrastructureSection />
+  <ActivitiesSection />
+  <GrowthSpiralSection />
+  <RemindSection />
+  <CurrentWorkSection />
   <AudienceSection />
   <FeaturedProjects />
   <FeaturedInsights />

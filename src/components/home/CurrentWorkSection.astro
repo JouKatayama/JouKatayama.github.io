@@ -1,28 +1,27 @@
 ---
 import SectionIntro from "../common/SectionIntro.astro";
-import { organization } from "../../data/organization";
 
 const work = [
-  { number: "01", title: "就活・キャリア支援", text: "新卒就活、職業開発、就労に向けた相談と伴走。働き方と自己実現を一緒に考えます。" },
-  { number: "02", title: "新規事業", text: "事業アイデアを企画し、検証し、実際に顧客へ届けるところまでを実践します。" },
-  { number: "03", title: "人事・広報・営業", text: "採用、発信、デザイン、マーケティング、営業など、組織の成長に必要な実務に挑戦します。" },
-  { number: "04", title: "AI / DX", text: "ChatGPT、Python、Reactなどを使い、企業案件やAIサービスの開発に取り組みます。" },
+  { number: "01", title: "就活・キャリア支援の拡充", text: "第三の場所で得た気づきを、就職・転職・副業・パラレルキャリアなど多様な選択へつなぎます。" },
+  { number: "02", title: "新規事業・社会実装", text: "異なる組織の知見を掛け合わせ、事業アイデアの検証から社会へ届けるところまで伴走します。" },
+  { number: "03", title: "実践型インターン", text: "人事・広報・マーケティング・営業など、組織の成長に必要な実務へ挑戦する機会を広げます。" },
+  { number: "04", title: "AI / DXと成長データ", text: "AIを実務で活用しながら、学びや成果の可視化と、一人ひとりに合う支援の設計を目指します。" },
 ];
 ---
 
 <section class="section current-work">
   <div class="container">
-    <SectionIntro eyebrow="05 / PRACTICE" title="現在の実践領域" />
+    <SectionIntro eyebrow="06 / TO-BE" title="この基盤から広げる、将来の事業構想。" light />
     <div class="work-grid">
       {work.map((item) => (
         <article class="work-card" data-reveal><span>{item.number}</span><h3>{item.title}</h3><p>{item.text}</p></article>
       ))}
     </div>
     <div class="practice-proof" data-reveal>
-      <div><span>EXPERTS</span><strong>国家資格キャリアコンサルタントが複数在籍</strong></div>
-      <div><span>MEMBERS</span><strong>学生・若手・中堅、多様な職種が協働</strong></div>
-      <div><span>BASE</span><strong>京都から、オンラインも活用して実践</strong></div>
-      <a class="text-link" href={organization.careersUrl} target="_blank" rel="noreferrer">現在の募集を見る <span>↗</span></a>
+      <div><span>STATUS</span><strong>ここから先は、段階的に実現する将来像です</strong></div>
+      <div><span>DIRECTION</span><strong>個人の「やりたい」を、社会の「力」へ</strong></div>
+      <div><span>EXPANSION</span><strong>京都で育て、地域・組織を越えて全国へ</strong></div>
+      <a class="text-link" href="/activities/#future">将来構想を詳しく見る <span>→</span></a>
     </div>
   </div>
 </section>

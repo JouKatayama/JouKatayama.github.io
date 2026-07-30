@@ -5,44 +5,45 @@ import PersonaCard from "../cards/PersonaCard.astro";
 const personas = [
   {
     number: "01",
-    label: "FIND A COMPASS",
-    title: "選びたいのに、自分の軸が見つからない",
-    text: "周囲の正解や求人情報はたくさんある。でも、自分が何を大切にしたいのかを言葉にする機会は、意外と少ない。",
+    label: "INFORMATION GAP",
+    title: "見える情報が、所属先の内側に偏る",
+    text: "新しい仕事や技術、市場の変化に触れる機会は、学校・会社・地域によって大きく異なります。",
   },
   {
     number: "02",
-    label: "TAKE A STEP",
-    title: "変わりたいのに、最初の一歩がわからない",
-    text: "大きな決断には不安がある。だからこそ、仕事を辞める前に、小さく試して確かめられる場所が必要です。",
+    label: "EXPERIENCE GAP",
+    title: "挑戦したくても、試せる機会がない",
+    text: "知識を得ても、実在する課題で試す場がなければ経験にはなりません。小さく挑戦できる足場が必要です。",
   },
   {
     number: "03",
-    label: "TURN INTO PRACTICE",
-    title: "学んでも、実践につながらない",
-    text: "知識や資格だけでは、自信になりにくい。誰かの課題に向き合い、最後まで形にする経験が、次の選択肢を増やします。",
+    label: "RELATIONSHIP GAP",
+    title: "相談相手やロールモデルが限られる",
+    text: "評価や人間関係が固定されると、違う価値観から助言を得にくく、市場や社会との距離も広がっていきます。",
   },
 ];
 ---
 
 <section class="section problem" id="problem">
   <div class="container">
-    <SectionIntro eyebrow="01 / WHY WE EXIST" title="選べないのは、意志が弱いからではない。" />
+    <SectionIntro eyebrow="01 / WHY WE EXIST" title="可能性の差は、本人より先に環境から生まれる。" />
     <p class="problem__statement" data-reveal>
-      可能性が、<br /><span>所属と経験の内側</span>だけで決まってしまう。
+      だから、所属の外にも<br /><span>学びと挑戦の入口</span>をつくる。
     </p>
     <p class="problem__lead" data-reveal>
-      学校や会社だけでは出会えない人・仕事・価値観があります。環境の外へ少しだけひらくことで、「自分には無理」だった未来が、試せる選択肢へ変わります。
+      会社や学校を否定するのではなく、その外にも接点を持つ。異なる業界・世代・専門性に出会うことで、自分と環境を複数の視点から見直せる状態をつくります。
     </p>
     <div class="persona-grid">
       {personas.map((persona) => <PersonaCard {...persona} />)}
     </div>
     <div class="issue-structure" data-reveal>
-      <p>共通する構造</p>
+      <p>越えたい「環境格差」</p>
       <div>
-        <span>自分を知る対話</span>
-        <span>多様な人との出会い</span>
-        <span>小さく試せる仕事</span>
-        <span>経験を言葉にする伴走</span>
+        <span>最新情報へのアクセス</span>
+        <span>実践・挑戦の機会</span>
+        <span>メンターとの出会い</span>
+        <span>組織外からの評価</span>
+        <span>市場・社会との接点</span>
       </div>
     </div>
     <div class="problem-story" data-reveal>
@@ -57,9 +58,9 @@ const personas = [
       </figure>
       <div>
         <p class="eyebrow"><span>OUR APPROACH</span></p>
-        <h3>答えを渡すのではなく、<br />一緒に問いを育てる。</h3>
+        <h3>利害関係から少し離れて、<br />安心して壁打ちできる。</h3>
         <p>
-          私たちが大切にするのは、本人の代わりに正解を決めることではありません。今感じている違和感や関心を言葉にし、現実の仕事やプロジェクトで確かめ、経験から次の問いを見つける。その循環を支えます。
+          先輩の経験と、後輩や異分野の新しい知見を持ち寄る。教える側と学ぶ側を固定せず、対話の中で互いの視野を広げる。その関係性を、キャリアの挑戦を支える土台にします。
         </p>
         <a class="text-link" href="/about/">活動の背景と理念を読む <span>→</span></a>
       </div>
