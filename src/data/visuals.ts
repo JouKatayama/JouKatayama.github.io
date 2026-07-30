@@ -3,6 +3,7 @@ export interface SiteVisual {
   alt: string;
   caption: string;
   position?: string;
+  fit?: "cover" | "contain";
 }
 
 export const pageVisuals: Record<string, SiteVisual> = {
@@ -76,6 +77,13 @@ export const activityVisuals: Record<string, SiteVisual> = {
 };
 
 export const projectVisuals: Record<string, SiteVisual> = {
+  "wellbeing-leading-indicator-poc": {
+    src: "/images/wellbeing-leading-indicator-poc-v1.webp",
+    alt: "人的資本経営におけるwell-being先行指標モデルの研究ポスター",
+    caption: "合成データを用いたPoC研究｜髙橋 直也",
+    position: "center",
+    fit: "contain",
+  },
   "career-dialogue-community": pageVisuals.insights,
   "cross-boundary-project": pageVisuals.projects,
   "remind-lab": pageVisuals.activities,

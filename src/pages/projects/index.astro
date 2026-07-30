@@ -8,22 +8,58 @@ import { pageVisuals } from "../../data/visuals";
 const projects = (await getCollection("projects", ({ data }) => !data.draft)).sort(
   (a, b) => b.data.publishedAt.getTime() - a.data.publishedAt.getTime(),
 );
+const researchAchievement = projects.find((project) => project.id === "wellbeing-leading-indicator-poc");
+const otherProjects = projects.filter((project) => project.id !== "wellbeing-leading-indicator-poc");
 ---
 
 <SiteLayout
-  title="プロジェクト｜NPO法人キャリアキャンパス"
-  description="キャリアキャンパスが行うキャリア支援、新規事業、マーケティング、AI/DXの実践をご紹介します。"
+  title="実績・プロジェクト｜NPO法人キャリアキャンパス"
+  description="キャリアキャンパスの研究実績と、キャリア支援、新規事業、AI/DXなどの実践プロジェクトをご紹介します。"
 >
   <PageHero
-    eyebrow="PROJECTS"
-    title="現在の募集と、将来につながる実践。"
-    lead="第三の場所と越境学習を基盤にしながら、就活支援、新規事業、AI/DXへ段階的に広げます。ここでは外部で公開中の募集・活動情報をご案内します。"
+    eyebrow="ACHIEVEMENTS / PROJECTS"
+    title="研究で確かめ、実践で社会へつなぐ。"
+    lead="人と組織の可能性をデータから捉える研究と、第三の場所から生まれるキャリア支援・越境実践をご紹介します。"
     visual={pageVisuals.projects}
   />
+  {researchAchievement && (
+    <section class="research-achievement">
+      <div class="container research-achievement__grid">
+        <div class="research-achievement__copy" data-reveal>
+          <p class="eyebrow"><span>RESEARCH ACHIEVEMENT / POC</span></p>
+          <h2>組織ネットワークの動きを、<br />well-beingの先行指標へ。</h2>
+          <p>
+            組織内の助言・相談・協働・情報共有ネットワークを可視化し、well-being低下の兆候を早期に捉えるモデルを構築。自己組織化マップ（SOM）と差分の差分法を組み合わせ、合成データで方法論の妥当性を検証しました。
+          </p>
+          <div class="research-achievement__metrics">
+            <div><span>SUPPORT × WELL-BEING</span><strong>β = 3.24</strong><small>支援の受け入れ数と正の関連</small></div>
+            <div><span>SOM CLASSIFICATION</span><strong>ARI 0.525</strong><small>NMI 0.751／4状態を識別</small></div>
+            <div><span>INTERVENTION EFFECT</span><strong>DiD +5.080</strong><small>介入後のwell-being改善</small></div>
+          </div>
+          <p class="research-achievement__note">合成データ N=200によるProof of Concept。今後、実データでの検証と組織開発への応用を目指します。</p>
+          <a class="button" href={`/projects/${researchAchievement.id}/`}>研究結果を詳しく見る <span>→</span></a>
+        </div>
+        <a class="research-achievement__poster" href={`/projects/${researchAchievement.id}/`} aria-label="well-being先行指標モデルの研究結果を見る" data-reveal>
+          <img
+            src="/images/wellbeing-leading-indicator-poc-v1.webp"
+            width="1536"
+            height="1024"
+            alt="人的資本経営におけるwell-being先行指標モデルの研究ポスター"
+            loading="eager"
+          />
+          <span>研究ポスターを詳しく見る ↗</span>
+        </a>
+      </div>
+    </section>
+  )}
   <section class="listing-section">
     <div class="container">
+      <div class="listing-section__head" data-reveal>
+        <p class="eyebrow"><span>ONGOING / OPEN PROJECTS</span></p>
+        <h2>実践・募集プロジェクト</h2>
+      </div>
       <div class="project-grid">
-        {projects.map((project) => <ProjectCard project={project} />)}
+        {otherProjects.map((project) => <ProjectCard project={project} />)}
       </div>
     </div>
   </section>

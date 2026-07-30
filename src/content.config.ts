@@ -11,6 +11,7 @@ const projects = defineCollection({
       category: z.enum(["remind", "project", "community", "research"]),
       status: z.enum(["recruiting", "ongoing", "completed", "planned"]),
       audience: z.array(z.string()),
+      author: z.string().default("キャリアキャンパス"),
       featured: z.boolean().default(false),
       publishedAt: z.coerce.date(),
       startAt: z.coerce.date().optional(),

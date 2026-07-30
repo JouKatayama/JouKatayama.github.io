@@ -15,13 +15,19 @@ const categoryLabels = {
 };
 const date = project.data.startAt
   ? new Intl.DateTimeFormat("ja-JP", { year: "numeric", month: "short" }).format(project.data.startAt)
-  : project.data.status === "ongoing" ? "継続実施" : "募集ページで確認";
+  : project.data.status === "completed"
+    ? new Intl.DateTimeFormat("ja-JP", { year: "numeric", month: "short" }).format(project.data.publishedAt)
+    : project.data.status === "ongoing"
+      ? "継続実施"
+      : project.data.status === "planned"
+        ? "準備中"
+        : "募集ページで確認";
 const visual = projectVisuals[project.id] || pageVisuals.projects;
 ---
 
 <article class="project-card" data-reveal>
   <figure class="project-card__visual">
-    <img src={visual.src} alt={visual.alt} width="720" height="480" loading="lazy" style={`object-position: ${visual.position || "center"}`} />
+    <img src={visual.src} alt={visual.alt} width="720" height="480" loading="lazy" style={`object-position: ${visual.position || "center"}; object-fit: ${visual.fit || "cover"}`} />
     <figcaption>{categoryLabels[project.data.category]}</figcaption>
   </figure>
   <div class="project-card__body">

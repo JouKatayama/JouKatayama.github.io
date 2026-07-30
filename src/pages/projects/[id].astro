@@ -24,6 +24,7 @@ const categories = {
   description={project.data.description}
   category={categories[project.data.category]}
   publishedAt={project.data.publishedAt}
+  author={project.data.author}
   visual={projectVisuals[project.id] || pageVisuals.projects}
 >
   <p><StatusBadge status={project.data.status} /></p>

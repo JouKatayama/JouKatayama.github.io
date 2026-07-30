@@ -32,7 +32,7 @@ const articleJsonLd = {
   description,
   datePublished: publishedAt.toISOString(),
   dateModified: (updatedAt || publishedAt).toISOString(),
-  author: { "@type": "Organization", name: author },
+  author: { "@type": author === "キャリアキャンパス" ? "Organization" : "Person", name: author },
   publisher: { "@type": "Organization", name: "NPO法人キャリアキャンパス" },
   inLanguage: "ja",
   mainEntityOfPage: Astro.url.href,
@@ -59,7 +59,7 @@ const articleJsonLd = {
         width="1536"
         height="1024"
         loading="eager"
-        style={`object-position: ${visual.position || "center"}`}
+        style={`object-position: ${visual.position || "center"}; object-fit: ${visual.fit || "cover"}`}
       />
       <figcaption>{visual.caption}</figcaption>
     </figure>
