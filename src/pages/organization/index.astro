@@ -7,7 +7,8 @@ import { pageVisuals } from "../../data/visuals";
 const profile = [
   ["法人名", organization.legalName],
   ["法人名（フリガナ）", organization.phoneticName],
-  ["代表者", `${organization.representative}（${organization.representativeReading}）`],
+  ["代表", `${organization.representativeName}（${organization.representativeReading}）`],
+  ["代表理事", `${organization.representativeDirectorName}（${organization.representativeDirectorReading}）`],
   ["設立", organization.foundedDisplay],
   ["業種", organization.industries.join("・")],
   ["現在の重点方針", "第三の場所・互助のつながり／壁打ち・メンタリング／越境学習・実践機会づくり"],
@@ -31,13 +32,53 @@ const profile = [
   <section class="fact-strip" aria-label="団体情報の要約">
     <div class="container fact-strip__grid">
       <div><span>FOUNDED</span><strong>2023.02.17</strong></div>
-      <div><span>REPRESENTATIVE</span><strong>高橋 千春</strong></div>
+      <div><span>REPRESENTATIVE</span><strong>髙橋 直也</strong></div>
+      <div><span>BOARD CHAIR</span><strong>代表理事 髙橋 千春</strong></div>
       <div><span>BASE</span><strong>京都市中京区</strong></div>
-      <div><span>EXPERTISE</span><strong>国家資格キャリアコンサルタント在籍</strong></div>
     </div>
   </section>
 
-  <section class="content-section">
+  <section class="content-section representative-profile" id="representative">
+    <div class="container representative-profile__grid">
+      <figure class="representative-profile__portrait" data-reveal>
+        <img
+          src="/images/representative-naoya-v1.webp"
+          width="887"
+          height="1774"
+          alt="キャリアキャンパス代表 髙橋直也"
+          loading="lazy"
+        />
+        <figcaption><span>REPRESENTATIVE</span><strong>NAOYA TAKAHASHI</strong></figcaption>
+      </figure>
+      <div class="representative-profile__body" data-reveal>
+        <p class="eyebrow"><span>LEADERSHIP / PROFILE</span></p>
+        <div class="representative-profile__name"><h2>髙橋 直也</h2><span>代表</span></div>
+        <h3>技術と人をつなぎ、未来の学びと働き方を創る。</h3>
+        <p class="representative-profile__lead">
+          AI・データサイエンスの専門性と、キャリア支援・人事・教育の経験を掛け合わせ、一人ひとりの可能性を言葉にし、社会の実践へつなぐことに取り組んでいます。
+        </p>
+        <p>
+          福井大学大学院で人工知能・機械学習を研究後、SCREENホールディングスで半導体洗浄装置のソフトウェア開発に従事。GA technologiesで人事、福井県庁でキャリアコンサルタントを経験し、再びSCREENホールディングスでデータサイエンティストとしてデータ分析・AI活用を推進しました。2025年からは外資大手コンサルティングファームのAIセンターでマネージャーを務めています。
+        </p>
+        <p>
+          2023年からNPO法人キャリアキャンパスに参画。大学生、若者、障がいのある方など約2,000人へのキャリア・就活支援の経験を生かし、技術と人の力で、誰もが自分らしく学び、働き、挑戦できる第三の場所を育てます。
+        </p>
+        <div class="representative-profile__highlights">
+          <div><span>CAREER SUPPORT</span><strong>約2,000人</strong><small>大学生・若者・障がいのある方等への支援</small></div>
+          <div><span>TECHNOLOGY</span><strong>AI / DATA</strong><small>機械学習・データサイエンス・開発</small></div>
+          <div><span>APPROACH</span><strong>人 × 技術</strong><small>可能性を引き出し、社会実践へつなぐ</small></div>
+        </div>
+        <div class="representative-profile__history" aria-label="髙橋直也の主な経歴">
+          <div><time>2012–2014</time><p><strong>福井大学大学院</strong><span>人工知能・機械学習を研究</span></p></div>
+          <div><time>2014–2024</time><p><strong>技術・人事・行政・データサイエンス</strong><span>SCREENホールディングス、GA technologies、福井県庁で経験</span></p></div>
+          <div><time>2023–現在</time><p><strong>NPO法人キャリアキャンパス 代表</strong><span>キャリア教育と、社会をつなぐ学びの場を推進</span></p></div>
+          <div><time>2025–現在</time><p><strong>外資大手コンサルティングファーム</strong><span>AIセンター マネージャー</span></p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="content-section content-section--surface">
     <div class="container content-grid">
       <div class="content-copy" data-reveal>
         <p class="eyebrow"><span>PROFILE</span></p>
@@ -65,7 +106,7 @@ const profile = [
     </div>
   </section>
 
-  <section class="content-section content-section--surface">
+  <section class="content-section">
     <div class="container content-grid">
       <div class="content-copy" data-reveal>
         <p class="eyebrow"><span>CURRENT BUSINESS DIRECTION</span></p>
@@ -80,7 +121,7 @@ const profile = [
     </div>
   </section>
 
-  <section class="content-section">
+  <section class="content-section content-section--surface">
     <div class="container">
       <div class="content-copy philosophy-head" data-reveal>
         <p class="eyebrow"><span>PHILOSOPHY</span></p>
@@ -94,7 +135,7 @@ const profile = [
     </div>
   </section>
 
-  <section class="content-section content-section--surface">
+  <section class="content-section">
     <div class="container content-grid">
       <div class="content-copy" data-reveal>
         <p class="eyebrow"><span>ORIGIN</span></p>
@@ -102,7 +143,7 @@ const profile = [
       </div>
       <div class="content-copy origin-story" data-reveal>
         <p>
-          就職氷河期を経験した代表が、大学3年生の就職活動を支援したことが始まりです。その学生が後輩の相談に乗り、支援の連鎖が少しずつ広がりました。
+          就職氷河期を経験した代表理事の髙橋千春が、大学3年生の就職活動を支援したことが始まりです。その学生が後輩の相談に乗り、支援の連鎖が少しずつ広がりました。
         </p>
         <p>
           誰かから受け取った助けを次の誰かへ手渡す。その循環を一時的な善意で終わらせず、キャリア教育の仕組みにするため、キャリアキャンパスは法人として歩み始めました。
@@ -111,7 +152,7 @@ const profile = [
     </div>
   </section>
 
-  <section class="content-section">
+  <section class="content-section content-section--surface">
     <div class="container content-grid">
       <div class="content-copy" data-reveal>
         <p class="eyebrow"><span>OUR STRENGTH</span></p>

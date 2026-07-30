@@ -24,7 +24,10 @@ const organizationJsonLd = {
   legalName: organization.legalName,
   url: new URL("/", Astro.site).href,
   foundingDate: organization.foundingDate,
-  founder: { "@type": "Person", name: organization.representativeName },
+  member: [
+    { "@type": "Person", name: organization.representativeName },
+    { "@type": "Person", name: organization.representativeDirectorName },
+  ],
   address: {
     "@type": "PostalAddress",
     postalCode: organization.postalCode,
@@ -56,7 +59,7 @@ const websiteJsonLd = {
     <title>{title}</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={canonical} />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/webp" href="/favicon.webp" />
     <meta name="theme-color" content="#17201b" />
     <meta property="og:type" content={type} />
     <meta property="og:title" content={title} />
