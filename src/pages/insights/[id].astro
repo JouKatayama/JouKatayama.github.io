@@ -1,6 +1,7 @@
 ---
 import { getCollection, render } from "astro:content";
 import ArticleLayout from "../../layouts/ArticleLayout.astro";
+import { insightVisuals, pageVisuals } from "../../data/visuals";
 
 export async function getStaticPaths() {
   const insights = await getCollection("insights", ({ data }) => !data.draft);
@@ -27,6 +28,7 @@ const categories = {
   publishedAt={insight.data.publishedAt}
   updatedAt={insight.data.updatedAt}
   author={insight.data.author}
+  visual={insightVisuals[insight.id] || pageVisuals.insights}
 >
   <Content />
 </ArticleLayout>

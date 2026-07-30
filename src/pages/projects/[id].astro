@@ -2,6 +2,7 @@
 import { getCollection, render } from "astro:content";
 import ArticleLayout from "../../layouts/ArticleLayout.astro";
 import StatusBadge from "../../components/cards/StatusBadge.astro";
+import { pageVisuals, projectVisuals } from "../../data/visuals";
 
 export async function getStaticPaths() {
   const projects = await getCollection("projects", ({ data }) => !data.draft);
@@ -23,6 +24,7 @@ const categories = {
   description={project.data.description}
   category={categories[project.data.category]}
   publishedAt={project.data.publishedAt}
+  visual={projectVisuals[project.id] || pageVisuals.projects}
 >
   <p><StatusBadge status={project.data.status} /></p>
   <Content />

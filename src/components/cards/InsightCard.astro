@@ -1,5 +1,6 @@
 ---
 import type { CollectionEntry } from "astro:content";
+import { insightVisuals, pageVisuals } from "../../data/visuals";
 
 interface Props {
   insight: CollectionEntry<"insights">;
@@ -20,15 +21,21 @@ const date = new Intl.DateTimeFormat("ja-JP", {
   day: "2-digit",
 }).format(insight.data.publishedAt);
 const readingTime = Math.max(3, Math.round((insight.body?.length ?? 0) / 700 || 3));
+const visual = insightVisuals[insight.id] || pageVisuals.insights;
 ---
 
 <article class="insight-card" data-reveal>
-  <p class="insight-card__category">{categoryLabels[insight.data.category]}</p>
-  <h3><a href={`/insights/${insight.id}/`}>{insight.data.title}</a></h3>
-  <p>{insight.data.description}</p>
-  <div class="insight-card__meta">
-    <time datetime={insight.data.publishedAt.toISOString()}>{date}</time>
-    <span>{readingTime} min read</span>
+  <figure class="insight-card__visual">
+    <img src={visual.src} alt={visual.alt} width="720" height="480" loading="lazy" style={`object-position: ${visual.position || "center"}`} />
+  </figure>
+  <div class="insight-card__body">
+    <p class="insight-card__category">{categoryLabels[insight.data.category]}</p>
+    <h3><a href={`/insights/${insight.id}/`}>{insight.data.title}</a></h3>
+    <p>{insight.data.description}</p>
+    <div class="insight-card__meta">
+      <time datetime={insight.data.publishedAt.toISOString()}>{date}</time>
+      <span>{readingTime} min read</span>
+    </div>
+    <a class="card-link" href={`/insights/${insight.id}/`}>記事を読む <span>↗</span></a>
   </div>
-  <a class="card-link" href={`/insights/${insight.id}/`}>記事を読む <span>↗</span></a>
 </article>

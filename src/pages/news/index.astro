@@ -2,6 +2,7 @@
 import { getCollection } from "astro:content";
 import SiteLayout from "../../layouts/SiteLayout.astro";
 import PageHero from "../../components/common/PageHero.astro";
+import { newsVisuals, pageVisuals } from "../../data/visuals";
 
 const news = (await getCollection("news", ({ data }) => !data.draft)).sort(
   (a, b) => b.data.publishedAt.getTime() - a.data.publishedAt.getTime(),
@@ -22,11 +23,19 @@ const formatDate = (date: Date) =>
     eyebrow="NEWS"
     title="お知らせ"
     lead="イベント、プロジェクト募集、活動報告、団体からのご案内をお届けします。"
+    visual={pageVisuals.news}
   />
   <section class="listing-section">
     <div class="container news-list">
       {news.map((item) => (
         <article class="news-item" data-reveal>
+          <img
+            src={(newsVisuals[item.id] || pageVisuals.news).src}
+            alt={(newsVisuals[item.id] || pageVisuals.news).alt}
+            width="360"
+            height="240"
+            loading="lazy"
+          />
           <time datetime={item.data.publishedAt.toISOString()}>{formatDate(item.data.publishedAt)}</time>
           <div>
             <h2>

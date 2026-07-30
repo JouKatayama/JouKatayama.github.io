@@ -2,6 +2,7 @@
 import SiteLayout from "../../layouts/SiteLayout.astro";
 import PageHero from "../../components/common/PageHero.astro";
 import { organization } from "../../data/organization";
+import { pageVisuals } from "../../data/visuals";
 
 const formLinks = [
   { label: "個人としての参加について", href: import.meta.env.PUBLIC_INDIVIDUAL_FORM_URL, external: false },
@@ -17,7 +18,7 @@ const links = [
 ---
 
 <SiteLayout title="お問い合わせ｜NPO法人キャリアキャンパス" description="活動への参加、組織連携、メンター・支援に関するお問い合わせ窓口と法人連絡先です。">
-  <PageHero eyebrow="CONTACT" title="まずは、問いや課題を聞かせてください。" lead="参加・連携・支援のご相談を受け付けています。募集条件は各募集ページの最新情報をご確認ください。" />
+  <PageHero eyebrow="CONTACT" title="まずは、問いや課題を聞かせてください。" lead="参加・連携・支援のご相談を受け付けています。募集条件は各募集ページの最新情報をご確認ください。" visual={pageVisuals.contact} />
   <section class="content-section">
     <div class="container contact-panel" id="contact-notice">
       <div data-reveal>

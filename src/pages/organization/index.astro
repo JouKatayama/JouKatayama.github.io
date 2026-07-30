@@ -2,6 +2,7 @@
 import SiteLayout from "../../layouts/SiteLayout.astro";
 import PageHero from "../../components/common/PageHero.astro";
 import { organization } from "../../data/organization";
+import { pageVisuals } from "../../data/visuals";
 
 const profile = [
   ["法人名", organization.legalName],
@@ -23,6 +24,7 @@ const profile = [
     eyebrow="ORGANIZATION"
     title="キャリア教育から、働く社会を変える。"
     lead="京都を拠点に、就活・就労支援、キャリア教育、実践型インターンを展開する特定非営利活動法人です。"
+    visual={pageVisuals.organization}
   />
 
   <section class="fact-strip" aria-label="団体情報の要約">

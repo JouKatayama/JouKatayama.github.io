@@ -1,16 +1,33 @@
 ---
+import type { SiteVisual } from "../../data/visuals";
+
 interface Props {
   eyebrow: string;
   title: string;
   lead: string;
+  visual: SiteVisual;
 }
-const { eyebrow, title, lead } = Astro.props;
+const { eyebrow, title, lead, visual } = Astro.props;
 ---
 
 <section class="page-hero">
   <div class="container page-hero__inner" data-reveal>
-    <p class="eyebrow"><span>{eyebrow}</span></p>
-    <h1>{title}</h1>
-    <p>{lead}</p>
+    <div class="page-hero__copy">
+      <p class="eyebrow"><span>{eyebrow}</span></p>
+      <h1>{title}</h1>
+      <p class="page-hero__lead">{lead}</p>
+    </div>
+    <figure class="page-hero__visual">
+      <img
+        src={visual.src}
+        alt={visual.alt}
+        width="1536"
+        height="1024"
+        loading="eager"
+        fetchpriority="high"
+        style={`object-position: ${visual.position || "center"}`}
+      />
+      <figcaption><span>CAREER CAMPUS</span><strong>{visual.caption}</strong></figcaption>
+    </figure>
   </div>
 </section>

@@ -3,6 +3,7 @@ import { getCollection } from "astro:content";
 import SiteLayout from "../../layouts/SiteLayout.astro";
 import PageHero from "../../components/common/PageHero.astro";
 import InsightCard from "../../components/cards/InsightCard.astro";
+import { pageVisuals } from "../../data/visuals";
 
 const insights = (await getCollection("insights", ({ data }) => !data.draft)).sort(
   (a, b) => b.data.publishedAt.getTime() - a.data.publishedAt.getTime(),
@@ -17,6 +18,7 @@ const insights = (await getCollection("insights", ({ data }) => !data.draft)).so
     eyebrow="INSIGHTS"
     title="問いを深め、社会の知へ変える。"
     lead="キャリアの無反応、AIと仕事、組織と個人の関係を捉え直し、実践に使える知として発信します。"
+    visual={pageVisuals.insights}
   />
   <section class="listing-section">
     <div class="container">

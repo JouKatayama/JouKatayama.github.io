@@ -1,6 +1,7 @@
 ---
 import SiteLayout from "../../layouts/SiteLayout.astro";
 import PageHero from "../../components/common/PageHero.astro";
+import { pageVisuals } from "../../data/visuals";
 ---
 
 <SiteLayout
@@ -11,6 +12,7 @@ import PageHero from "../../components/common/PageHero.astro";
     eyebrow="PRIVACY POLICY"
     title="プライバシーポリシー"
     lead="個人情報を適切に取り扱い、安全な管理に努めます。"
+    visual={pageVisuals.privacy}
   />
   <div class="legal">
     <p>

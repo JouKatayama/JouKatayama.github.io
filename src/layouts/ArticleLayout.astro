@@ -1,5 +1,6 @@
 ---
 import SiteLayout from "./SiteLayout.astro";
+import type { SiteVisual } from "../data/visuals";
 
 interface Props {
   title: string;
@@ -8,6 +9,7 @@ interface Props {
   publishedAt: Date;
   updatedAt?: Date;
   author?: string;
+  visual: SiteVisual;
 }
 const {
   title,
@@ -16,6 +18,7 @@ const {
   publishedAt,
   updatedAt,
   author = "キャリアキャンパス",
+  visual,
 } = Astro.props;
 const date = new Intl.DateTimeFormat("ja-JP", {
   year: "numeric",
@@ -33,10 +36,11 @@ const articleJsonLd = {
   publisher: { "@type": "Organization", name: "NPO法人キャリアキャンパス" },
   inLanguage: "ja",
   mainEntityOfPage: Astro.url.href,
+  image: new URL(visual.src, Astro.site).href,
 };
 ---
 
-<SiteLayout title={`${title}｜NPO法人キャリアキャンパス`} description={description} type="article">
+<SiteLayout title={`${title}｜NPO法人キャリアキャンパス`} description={description} image={visual.src} type="article">
   <script is:inline slot="head" type="application/ld+json" set:html={JSON.stringify(articleJsonLd)} />
   <article class="article">
     <header class="article__header" data-reveal>
@@ -48,6 +52,17 @@ const articleJsonLd = {
         <span>{author}</span>
       </div>
     </header>
+    <figure class="article__visual" data-reveal>
+      <img
+        src={visual.src}
+        alt={visual.alt}
+        width="1536"
+        height="1024"
+        loading="eager"
+        style={`object-position: ${visual.position || "center"}`}
+      />
+      <figcaption>{visual.caption}</figcaption>
+    </figure>
     <div class="article__body">
       <slot />
     </div>

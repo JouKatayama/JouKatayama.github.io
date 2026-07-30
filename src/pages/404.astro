@@ -1,5 +1,6 @@
 ---
 import SiteLayout from "../layouts/SiteLayout.astro";
+import { pageVisuals } from "../data/visuals";
 ---
 
 <SiteLayout
@@ -7,11 +8,17 @@ import SiteLayout from "../layouts/SiteLayout.astro";
   description="お探しのページは移動または削除された可能性があります。"
 >
   <section class="not-found">
-    <div class="container" data-reveal>
-      <strong>404</strong>
-      <h1>ページが見つかりません</h1>
-      <p>URLをご確認いただくか、ホームから目的のページをお探しください。</p>
-      <a class="button" href="/">ホームへ戻る <span>→</span></a>
+    <div class="container not-found__grid" data-reveal>
+      <div>
+        <strong>404</strong>
+        <h1>ページが見つかりません</h1>
+        <p>URLをご確認いただくか、ホームから目的のページをお探しください。</p>
+        <a class="button" href="/">ホームへ戻る <span>→</span></a>
+      </div>
+      <figure class="not-found__visual">
+        <img src={pageVisuals.notFound.src} alt={pageVisuals.notFound.alt} width="1536" height="1024" />
+        <figcaption>{pageVisuals.notFound.caption}</figcaption>
+      </figure>
     </div>
   </section>
 </SiteLayout>

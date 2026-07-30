@@ -1,6 +1,7 @@
 ---
 import { getCollection, render } from "astro:content";
 import ArticleLayout from "../../layouts/ArticleLayout.astro";
+import { newsVisuals, pageVisuals } from "../../data/visuals";
 
 export async function getStaticPaths() {
   const news = await getCollection("news", ({ data }) => !data.draft && !data.externalUrl);
@@ -23,6 +24,7 @@ const categories = {
   description={item.data.description}
   category={categories[item.data.category]}
   publishedAt={item.data.publishedAt}
+  visual={newsVisuals[item.id] || pageVisuals.news}
 >
   <Content />
 </ArticleLayout>

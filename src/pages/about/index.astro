@@ -2,6 +2,7 @@
 import SiteLayout from "../../layouts/SiteLayout.astro";
 import PageHero from "../../components/common/PageHero.astro";
 import { organization } from "../../data/organization";
+import { pageVisuals } from "../../data/visuals";
 
 const title = "私たちについて｜NPO法人キャリアキャンパス";
 const description = "キャリアキャンパスのMission・Vision・Value、設立の背景、Re:Mindの考え方をご紹介します。";
@@ -12,6 +13,7 @@ const description = "キャリアキャンパスのMission・Vision・Value、�
     eyebrow="ABOUT US"
     title="働くことと、自分らしく生きることをつなぐ。"
     lead="価値観や働き方が大きく変わる時代に、キャリア教育を通じて、一人ひとりの働き方と自己実現を支えます。"
+    visual={pageVisuals.about}
   />
 
   <section class="content-section">

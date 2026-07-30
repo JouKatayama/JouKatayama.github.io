@@ -2,6 +2,7 @@
 import SiteLayout from "../../layouts/SiteLayout.astro";
 import PageHero from "../../components/common/PageHero.astro";
 import { organization } from "../../data/organization";
+import { activityVisuals, pageVisuals } from "../../data/visuals";
 
 const activities = [
   {
@@ -47,14 +48,25 @@ const activities = [
     eyebrow="ACTIVITIES"
     title="相談から、実際に仕事をつくる経験まで。"
     lead="就活・就労支援と、企業や社会の課題に挑む実践機会をつなぎ、自分の能力を誰かのために使える状態を育てます。"
+    visual={pageVisuals.activities}
   />
   {activities.map((activity, index) => (
     <section class:list={["content-section", { "content-section--surface": index % 2 === 1 }]} id={activity.id}>
-      <div class="container content-grid">
+      <div class="container activity-detail">
         <div class="content-copy" data-reveal>
           <p class="eyebrow"><span>{activity.number} / ACTIVITY</span></p>
           <h2>{activity.title}</h2>
         </div>
+        <figure class="activity-detail__visual" data-reveal>
+          <img
+            src={activityVisuals[activity.id].src}
+            alt={activityVisuals[activity.id].alt}
+            width="1536"
+            height="1024"
+            loading="lazy"
+            style={`object-position: ${activityVisuals[activity.id].position || "center"}`}
+          />
+        </figure>
         <div class="content-copy" data-reveal>
           <h3>{activity.lead}</h3>
           <p>{activity.text}</p>

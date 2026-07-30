@@ -2,6 +2,7 @@
 import SiteLayout from "../../layouts/SiteLayout.astro";
 import PageHero from "../../components/common/PageHero.astro";
 import { organization } from "../../data/organization";
+import { pageVisuals } from "../../data/visuals";
 
 const individualUrl = import.meta.env.PUBLIC_INDIVIDUAL_FORM_URL || "/contact/";
 const partnerUrl = import.meta.env.PUBLIC_PARTNER_FORM_URL || "/contact/";
@@ -32,7 +33,7 @@ const paths = [
   title="活動に参加する｜NPO法人キャリアキャンパス"
   description="キャリア相談・インターンへの参加、企業・大学・自治体との連携、専門性や寄付による支援方法をご案内します。"
 >
-  <PageHero eyebrow="JOIN US" title="学ぶ人、機会をつくる組織、支える専門家へ。" lead="就活支援、新規事業、AI/DXなどの実践を、異なる立場の人とともにつくります。" />
+  <PageHero eyebrow="JOIN US" title="学ぶ人、機会をつくる組織、支える専門家へ。" lead="就活支援、新規事業、AI/DXなどの実践を、異なる立場の人とともにつくります。" visual={pageVisuals.join} />
   <section class="content-section">
     <div class="container join-grid">
       {paths.map((path) => (
