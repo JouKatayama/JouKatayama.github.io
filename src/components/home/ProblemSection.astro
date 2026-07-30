@@ -5,33 +5,33 @@ import PersonaCard from "../cards/PersonaCard.astro";
 const personas = [
   {
     number: "01",
-    label: "YOUNG TALENT",
-    title: "違和感から、すぐ離れる若手",
-    text: "辞めること自体は悪くない。ただ、次の仮説や自分側の学びを持たないまま環境だけを変えると、同じ問題が繰り返される。",
+    label: "FIND A COMPASS",
+    title: "選びたいのに、自分の軸が見つからない",
+    text: "周囲の正解や求人情報はたくさんある。でも、自分が何を大切にしたいのかを言葉にする機会は、意外と少ない。",
   },
   {
     number: "02",
-    label: "MID-CAREER",
-    title: "安定の中で、変化を止める中堅",
-    text: "今の仕事を続けること自体は悪くない。ただ、会社や役職を将来の安全性と混同すると、社外で通用する経験が増えない。",
+    label: "TAKE A STEP",
+    title: "変わりたいのに、最初の一歩がわからない",
+    text: "大きな決断には不安がある。だからこそ、仕事を辞める前に、小さく試して確かめられる場所が必要です。",
   },
   {
     number: "03",
-    label: "HIGH POTENTIAL",
-    title: "能力はあるが、完成させられない人",
-    text: "学歴や知識はあっても、曖昧な課題を自分で定義し、他者に価値を届ける成果物まで完了できるとは限らない。",
+    label: "TURN INTO PRACTICE",
+    title: "学んでも、実践につながらない",
+    text: "知識や資格だけでは、自信になりにくい。誰かの課題に向き合い、最後まで形にする経験が、次の選択肢を増やします。",
   },
 ];
 ---
 
 <section class="section problem" id="problem">
   <div class="container">
-    <SectionIntro eyebrow="01 / PROBLEM" title="問題は、スキル不足だけではない。" />
+    <SectionIntro eyebrow="01 / WHY WE EXIST" title="選べないのは、意志が弱いからではない。" />
     <p class="problem__statement" data-reveal>
-      自分の未来に、<br /><span>反応しなくなっている</span>ことだ。
+      可能性が、<br /><span>所属と経験の内側</span>だけで決まってしまう。
     </p>
     <p class="problem__lead" data-reveal>
-      選択そのものが悪いのではありません。問題は、環境が変化しても前提を問い直さず、学びや気づきを行動へ変えられない状態が続くことです。
+      学校や会社だけでは出会えない人・仕事・価値観があります。環境の外へ少しだけひらくことで、「自分には無理」だった未来が、試せる選択肢へ変わります。
     </p>
     <div class="persona-grid">
       {personas.map((persona) => <PersonaCard {...persona} />)}
@@ -39,12 +39,30 @@ const personas = [
     <div class="issue-structure" data-reveal>
       <p>共通する構造</p>
       <div>
-        <span>前提を更新しない</span>
-        <span>変化を自分事にしない</span>
-        <span>学びを実践へ移さない</span>
-        <span>小さく始めて完了しない</span>
+        <span>自分を知る対話</span>
+        <span>多様な人との出会い</span>
+        <span>小さく試せる仕事</span>
+        <span>経験を言葉にする伴走</span>
       </div>
     </div>
-    <p class="problem__note">人を責めるためではなく、環境と行動の関係を問い直すための問題提起です。</p>
+    <div class="problem-story" data-reveal>
+      <figure>
+        <img
+          src="/images/career-dialogue-v2.webp"
+          width="1122"
+          height="1402"
+          alt="キャリアについて一対一で対話するイメージ"
+          loading="lazy"
+        />
+      </figure>
+      <div>
+        <p class="eyebrow"><span>OUR APPROACH</span></p>
+        <h3>答えを渡すのではなく、<br />一緒に問いを育てる。</h3>
+        <p>
+          私たちが大切にするのは、本人の代わりに正解を決めることではありません。今感じている違和感や関心を言葉にし、現実の仕事やプロジェクトで確かめ、経験から次の問いを見つける。その循環を支えます。
+        </p>
+        <a class="text-link" href="/about/">活動の背景と理念を読む <span>→</span></a>
+      </div>
+    </div>
   </div>
 </section>

@@ -1,30 +1,44 @@
 ---
-import OrbitVisual from "./OrbitVisual.astro";
-
 const individualUrl = import.meta.env.PUBLIC_INDIVIDUAL_FORM_URL || "/contact/";
 ---
 
-<section class="hero">
-  <div class="hero__signal" aria-hidden="true">QUESTION / CHOICE / ACTION</div>
+<section class="hero hero--editorial">
+  <div class="hero__signal" aria-hidden="true">DIALOGUE / CHOICE / PRACTICE</div>
   <div class="container hero__grid">
     <div class="hero__copy" data-reveal>
-      <p class="eyebrow"><span>NPO法人キャリアキャンパス</span></p>
-      <h1>所属環境で、<br /><em>可能性</em>は決まってしまうのか？</h1>
+      <p class="eyebrow"><span>NPO法人キャリアキャンパス｜京都</span></p>
+      <h1>自分の可能性に、<br /><em>もう一度出会う。</em></h1>
       <p class="hero__brand">リスキリングの前に、<strong>Re:Mind。</strong></p>
       <p class="hero__lead">
-        京都を拠点に、就活・キャリア教育・就労支援と、新規事業やAI/DXの実践機会を提供するNPOです。専門家との対話と実際の仕事を通じて、自分の能力を誰かのために発揮できる人を増やします。
+        立ち止まり、誰かと話し、小さく試してみる。私たちは、就活・キャリア教育・就労支援と実践型プロジェクトを通じて、一人ひとりが自分の言葉で次の一歩を選べるよう伴走するNPOです。
       </p>
       <div class="hero__actions">
-        <a class="button" href={individualUrl}>活動に参加する <span>→</span></a>
-        <a class="button button--secondary" href="#remind">Re:Mindを知る</a>
+        <a class="button" href={individualUrl}>相談・活動に参加する <span>→</span></a>
+        <a class="button button--secondary" href="/about/">私たちについて</a>
       </div>
-      <a class="text-link" href="/join/#partners">企業・大学・自治体の方へ <span>↗</span></a>
+      <a class="text-link" href="/join/#partners">企業・大学・自治体との連携はこちら <span>↗</span></a>
     </div>
     <div class="hero__visual" data-reveal>
-      <OrbitVisual />
+      <figure class="hero-photo">
+        <img
+          src="/images/hero-dialogue-v2.webp"
+          width="1536"
+          height="1024"
+          alt="若者とファシリテーターがテーブルを囲んで対話するイメージ"
+          loading="eager"
+          fetchpriority="high"
+        />
+        <figcaption>
+          <span>KYOTO / ONLINE</span>
+          <strong>対話から、選択と実践へ。</strong>
+        </figcaption>
+      </figure>
     </div>
   </div>
-  <div class="container hero__foot" aria-hidden="true">
-    <span>SCROLL TO EXPLORE</span><i></i><span>01 — 08</span>
+  <div class="container hero__facts" data-reveal>
+    <div><span>FOUNDED</span><strong>2023</strong><small>京都で活動開始</small></div>
+    <div><span>SUPPORT</span><strong>4</strong><small>キャリア支援の領域</small></div>
+    <div><span>METHOD</span><strong>5</strong><small>Re:Mindのステップ</small></div>
+    <p>国家資格キャリアコンサルタントを含む、多世代・多職種のメンバーが伴走します。</p>
   </div>
 </section>

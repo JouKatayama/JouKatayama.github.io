@@ -12,7 +12,25 @@ const activities = [
 
 <section class="section activities">
   <div class="container">
-    <SectionIntro eyebrow="04 / ACTIVITIES" title="活動の4つの柱" />
+    <div class="activities__head">
+      <SectionIntro eyebrow="04 / WHAT WE DO" title="話すだけで終わらない。実際にやってみる。" />
+      <p data-reveal>
+        相談で見つけた関心を、現実の課題やチームで試す。そこで得た手応えや失敗を、次のキャリア選択に変えていきます。
+      </p>
+    </div>
+    <figure class="activities-photo" data-reveal>
+      <img
+        src="/images/project-workshop-v2.webp"
+        width="1536"
+        height="1024"
+        alt="若者たちがプロジェクトのアイデアを形にするワークショップのイメージ"
+        loading="lazy"
+      />
+      <figcaption>
+        <span>LEARN BY DOING</span>
+        <strong>問いを持ち寄り、チームで形にする。</strong>
+      </figcaption>
+    </figure>
     <div class="activities-grid">
       {activities.map(([number, title, text, href]) => (
         <ActivityCard number={number} title={title} text={text} href={href} />
